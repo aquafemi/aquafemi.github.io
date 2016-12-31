@@ -19,10 +19,13 @@ body {
     line-height: $base-line-height;
     font-weight: 300;
     color: $text-color;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    background: $background;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
 }
-
 
 
 /**
