@@ -19,4 +19,13 @@ layout: default
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
+  <div>
+    {% for event in site.data.timeline %}
+      <h2>{{ event.name }}</h2>
+      <p>Start: {{ event.time }}</p>
+      <p>Description: {{ event.description }}</p>
+      <p>Location: {{ event.location }}</p>
+    {% endfor %}
+  </div>
+
 </div>
