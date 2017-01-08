@@ -21,7 +21,6 @@ body {
     color: $text-color;
     height: 100%;
     min-height: 100%;
-    position: relative;
     background: $background;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
@@ -204,4 +203,41 @@ pre {
             fill: $grey-color;
         }
     }
+}
+
+/**
+ * Timeline Event
+ */
+.timeline-event {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 400px;
+    font-size: large;
+    border: 1px solid transparentize(red, .3);
+    background: transparentize(red, .8);
+    padding: 5px;
+    //margin-bottom: $timeline-margin;
+}
+
+/**
+ * Vertical timeline line
+ */
+.timeline-line {
+    position: relative;
+    left: 50%;
+    height: 100px;
+    width: 0;
+    border-right: 5px solid transparentize(red, .3);
+}
+
+/**
+ * Controls for timeline
+ */
+.controls {
+  position: relative;
+  left: 50%;
+  width: 500px;
+  transform: translate(-50%, 0);
+  margin-bottom: $timeline-margin;
 }

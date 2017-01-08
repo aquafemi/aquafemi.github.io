@@ -17,15 +17,20 @@ layout: default
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <div class="controls">
+      <div id="slider"></div>
+  </div>
 
-  <div>
-    {% for event in site.data.timeline %}
+  {% for event in site.data.timeline %}
+    <div class="timeline-event">
       <h2>{{ event.name }}</h2>
-      <p>Start: {{ event.time }}</p>
+      <p>Time: {{ event.time }}</p>
       <p>Description: {{ event.description }}</p>
       <p>Location: {{ event.location }}</p>
-    {% endfor %}
-  </div>
+    </div>
+    <div class="timeline-line"></div>
+  {% endfor %}
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>

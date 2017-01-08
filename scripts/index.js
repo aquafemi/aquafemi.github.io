@@ -1,17 +1,28 @@
 $(function() {
-    var favicon = $('#favicon');
-    console.log('heere');
-    // TweenLite.to(favicon, 0.7, {left: 0, x: 0});
-    TweenLite.fromTo(favicon, 2, {x: '-=200px'},
-        {x: 150, ease:Power4.easeInOut, onStart: start, onUpdate: update, onComplete: complete});
 
-    function start(){
-        console.log('start');
+    var timelineBoxes = $(".timeline-event, .timeline-line");
+    var tl = new TimelineLite({
+        onUpdate: updateSlider
+    });
+
+    // Create a Slider to Control Playback
+    $("#slider").slider({
+        range: false,
+        min: 0,
+        max: 100,
+        step: .1,
+        slide: function(event, ui) {
+            tl.pause();
+            //adjust the timeline’s progress() based on slider value
+            tl.progress(ui.value / 100);
+        }
+    });
+
+    // updateSlider function
+    function updateSlider() {
+        $("#slider").slider("value", tl.progress() * 100);
     }
-    function update(){
-        console.log('animating');
-    }
-    function complete(){
-        console.log('end');
-    }
+
+    tl.staggerFrom(timelineBoxes, 1, {x: '-=100', autoAlpha: 0, ease:Power4.easeInOut}, 0.5);
+
 });
