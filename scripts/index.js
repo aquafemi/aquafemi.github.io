@@ -24,6 +24,6 @@ $(function() {
         $("#slider").slider("value", 100 - tl.progress() * 100);
     }
 
-    tl.staggerFrom(timelineBoxes, 1, {x: '-=100', autoAlpha: 0, ease:Power4.easeInOut}, 0.5);
+    tl.staggerFrom(timelineBoxes, 1, {x: '-=100', autoAlpha: 0, ease:Power1.easeInOut}, 0.5);
 
 });

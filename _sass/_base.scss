@@ -213,8 +213,8 @@ pre {
     transform: translate(-50%, 0);
     width: 400px;
     font-size: large;
-    border: 1px solid transparentize(red, .3);
-    background: transparentize(red, .8);
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    background: rgba(175, 0, 0, 0.5);
     padding: 5px;
     //margin-bottom: $timeline-margin;
 }
@@ -227,7 +227,7 @@ pre {
     left: 50%;
     height: 100px;
     width: 0;
-    border-right: 5px solid transparentize(red, .3);
+    border: 2px solid rgba(255, 0, 0, 0.5);
 }
 
 /**
@@ -235,4 +235,14 @@ pre {
  */
 #slider {
   height: 100%;
+  .ui-state-active {
+    background: black;
+  }
+  background: repeating-linear-gradient(
+                  45deg,
+                  rgba(255, 0, 0, 0.5),
+                  rgba(255, 0, 0, 0.5) 10px,
+                  rgba(175, 0, 0, 0.5) 10px,
+                  rgba(175, 0, 0, 0.5) 20px
+  );
 }
