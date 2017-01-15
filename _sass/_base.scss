@@ -231,12 +231,8 @@ pre {
 }
 
 /**
- * Controls for timeline
+ * Slider for timeline
  */
-.controls {
-  position: relative;
-  left: 50%;
-  width: 500px;
-  transform: translate(-50%, 0);
-  margin-bottom: $timeline-margin;
+#slider {
+  height: 100%;
 }

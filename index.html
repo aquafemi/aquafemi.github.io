@@ -17,19 +17,25 @@ layout: default
     {% endfor %}
   </ul>
 
-  <div class="controls">
+  <div style="display: flex;">
+    <div>
       <div id="slider"></div>
+    </div>
+
+    <div style="flex-grow: 1;">
+      {% for event in site.data.timeline %}
+        <div class="timeline-event">
+          <h2>{{ event.name }}</h2>
+          <p>Time: {{ event.time }}</p>
+          <p>Description: {{ event.description }}</p>
+          <p>Location: {{ event.location }}</p>
+        </div>
+        <div class="timeline-line"></div>
+      {% endfor %}
+    </div>
   </div>
 
-  {% for event in site.data.timeline %}
-    <div class="timeline-event">
-      <h2>{{ event.name }}</h2>
-      <p>Time: {{ event.time }}</p>
-      <p>Description: {{ event.description }}</p>
-      <p>Location: {{ event.location }}</p>
-    </div>
-    <div class="timeline-line"></div>
-  {% endfor %}
+
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 

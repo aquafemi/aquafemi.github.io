@@ -1,14 +1,14 @@
 [
   {
-    "name": "Started high school!",
-    "time": 1251604800,
-    "description": "Started high school at Fort Meade High School",
-    "location": "Ft. Meade, MD"
-  },
-  {
-    "name": "Graduated from high shcool!",
+    "name": "Graduated from high school!",
     "time": 1370059200,
     "description": "Graduated from Fort Meade High School",
-    "location": "Ft. Meade, MD"
+    "location": "Ft. Meade, MD, USA"
+  },
+  {
+    "name": "Enrolled at Carnegie Mellon studying Electrical and Computer Engineerings",
+    "time": 1377921600,
+    "description": "Started school at Carnegie Mellon",
+    "location": "Pittsburgh, PA, USA"
   }
 ]
