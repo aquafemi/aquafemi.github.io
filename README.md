@@ -1,5 +1,5 @@
 # aquafemi.github.io
-[femi.xyz](femi.xyz)
+[femi.xyz](http://femi.xyz)
 
 # modules
 * _includes - templates to import and combine for reuseability
