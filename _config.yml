@@ -9,9 +9,10 @@ twitter_username:
 github_username:  aquafemi
 linkedin_username: oolukoya
 
-sass:
-    sass_dir: _sass
-    style: compressed
+collections:
+  blog:
+    permalink: /:collection/:name/
+    output: true
 
 # Build settings
 markdown: kramdown
