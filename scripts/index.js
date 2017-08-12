@@ -1,5 +1,8 @@
 $(function() {
 
+    // Style toggle tooltips.
+    $('[data-toggle="tooltip"]').tooltip({delay: {hide: 3000}});
+
     var timelineBoxes = $(".timeline-event, .timeline-line");
     var tl = new TimelineLite({
         onUpdate: updateSlider

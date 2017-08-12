@@ -1,13 +1,19 @@
 [
   {
-    "name": "Graduated from high school!",
-    "time": 1370059200,
+    "name": "Moved to America",
+    "time": "December 2002",
+    "description": "Moved here with my family to the states",
+    "location": "Laurel, MD, USA"
+  },
+  {
+    "name": "Graduated from high school",
+    "time": "June 2013",
     "description": "Graduated from Fort Meade High School",
     "location": "Ft. Meade, MD, USA"
   },
   {
-    "name": "Enrolled at Carnegie Mellon studying Electrical and Computer Engineerings",
-    "time": 1377921600,
+    "name": "Enrolled at Carnegie Mellon studying Electrical and Computer Engineering",
+    "time": "August 2013",
     "description": "Started school at Carnegie Mellon",
     "location": "Pittsburgh, PA, USA"
   }
