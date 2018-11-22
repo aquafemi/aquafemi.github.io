@@ -6,8 +6,15 @@ layout: default
 custom_css: blog.css
 ---
 
-Welcome to my blog. Read my opinions on
+<h1>
+    Welcome to my blog. Read my opinions on:
+</h1>
 
-{% for blog in site.blog %}
-  <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-{% endfor %}
+<ul class="blog-list">
+    {% for blog in site.blog %}
+        <li>
+            <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+            {{ blog.description }}
+        </li>
+    {% endfor %}
+</ul>
