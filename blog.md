@@ -20,6 +20,7 @@ custom_css: blog.css
       {% endif %}
   {% endfor %}
 
+  <!-- Put Dribble at the end -->
   {% for blog in site.blogs %}
     {% if blog.title == "Dribble" %}
       <li>

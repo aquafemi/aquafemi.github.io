@@ -3,10 +3,19 @@
   {% include head.html %}
   <body>
     {% include header.html %}
+
     {% if page.include_search %}
       {% include search.html %}
     {% endif %}
-    {{ content }}
+
+    <div class="wrapper">
+      {{ content }}
+
+      {% include posts.html %}
+    </div>
+
+    {% include footer.html %}
+    
     {% include scripts.html %}
   </body>
 </html>
