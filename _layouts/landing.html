@@ -2,10 +2,11 @@
 <html lang="en">
   {% include head.html %}
   <body>
-    {% include scripts.html %}
+    {% include header.html %}
     {% if page.include_search %}
       {% include search.html %}
     {% endif %}
     {{ content }}
+    {% include scripts.html %}
   </body>
 </html>
