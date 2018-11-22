@@ -7,17 +7,17 @@ custom_css: blog.css
 ---
 
 <h1>
-    Welcome to my blog. Read my opinions on:
+    Welcome to my blog where you can read my opinions on:
 </h1>
 
 <ul class="blog-list">
   {% for blog in site.blogs %}
-      {% if blog.title != "Dribble" %}
-        <li>
-          <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-          {{ blog.description }}
-        </li>
-      {% endif %}
+    {% if blog.title != "Dribble" %}
+      <li>
+        <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+        <span class="post-meta">{{ blog.description }}</span>
+      </li>
+    {% endif %}
   {% endfor %}
 
   <!-- Put Dribble at the end -->
@@ -25,7 +25,7 @@ custom_css: blog.css
     {% if blog.title == "Dribble" %}
       <li>
         <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-        {{ blog.description }}
+        <span class="post-meta">{{ blog.description }}</span>
       </li>
     {% endif %}
   {% endfor %}

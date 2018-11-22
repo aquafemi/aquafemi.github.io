@@ -5,7 +5,12 @@
     {% if page.category == "All" or post.categories contains page.category %}
       <li>
         <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-meta">
+          {{ post.date | date: "%b %-d, %Y" }}
+          {% if page.include_number_of_words %}
+            • {{ post.content | number_of_words }} words
+          {% endif %}
+        </span>
         {% if page.include_excerpts %}
           <p>{{ post.excerpt }}</p>
         {% endif %}
