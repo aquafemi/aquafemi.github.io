@@ -10,7 +10,7 @@ github_username:  aquafemi
 linkedin_username: oolukoya
 
 collections:
-  blog:
+  blogs:
     permalink: /:collection/:name/
     output: true
 

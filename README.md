@@ -2,8 +2,8 @@
 
 # Modules
 
-## _blog
-Blog categories where I make posts on things taht interest me
+## _blogs
+Blog categories where I make posts on things that interest me
 
 ## _posts
 Written content that goes in my blogs
@@ -15,16 +15,16 @@ An Interactive Visual Résumé
 Static data for some of the other modules to use (timeline resume, and other apps on the way)
 
 ## css
-Global styling kept in one place
+All global styling kept in one place
 
 ## _sass
-Where the styleing is actually applied
+Where the styling is actually applied
 
 ## _includes
 Templates to import and combine for reuseability
 
 ## _layouts
-More templates
+More templates which describe how a webpage looks
 
 ## assets
 Images, media, etc

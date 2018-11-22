@@ -11,7 +11,7 @@ custom_css: blog.css
 </h1>
 
 <ul class="blog-list">
-  {% for blog in site.blog %}
+  {% for blog in site.blogs %}
       {% if blog.title != "Dribble" %}
         <li>
           <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
@@ -20,7 +20,7 @@ custom_css: blog.css
       {% endif %}
   {% endfor %}
 
-  {% for blog in site.blog %}
+  {% for blog in site.blogs %}
     {% if blog.title == "Dribble" %}
       <li>
         <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
