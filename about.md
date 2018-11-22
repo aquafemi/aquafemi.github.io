@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hi, my name is Femi and I slave over a hot laptop for 12 hours a day with no appreciation.
+Hi, my name is Femi Olukoya. I'm a Software Engineer currently working at Microsoft on Power BI.
 
 This labor of love was made using a tool called Jekyll and is hosted for free on Github Pages.
 
