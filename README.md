@@ -9,5 +9,6 @@
 * _layouts - more templates
 * _posts - written content
 * _sass - style
+* assets - images, media, etc
 * css - global style
 * scipts - javascript (timeline, etc)
