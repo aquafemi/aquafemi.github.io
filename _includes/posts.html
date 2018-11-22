@@ -1,10 +1,15 @@
+<h1 class="page-heading">Posts</h1>
+
 <ul class="post-list">
-  {% for post in site.posts %} 
-    {% if post.categories contains page.category %}
-    <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{{ post.excerpt }}</p>
-    </li>
+  {% for post in site.posts %}
+    {% if page.category == "All" or post.categories contains page.category %}
+      <li>
+        <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        {% if page.include_excerpts %}
+          <p>{{ post.excerpt }}</p>
+        {% endif %}
+      </li>
     {% endif %}
   {% endfor %}
 </ul>

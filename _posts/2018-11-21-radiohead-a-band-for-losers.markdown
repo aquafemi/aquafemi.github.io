@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Radiohead - A Band For Losers"
-date:   2018-09-21 22:45:00
+date:   2018-11-21 22:45:00
 categories: Radiohead
 ---
 
