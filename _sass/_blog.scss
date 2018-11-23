@@ -24,3 +24,17 @@
 #search_bar:focus {
   width: 50%;
 }
+
+.flex-grid {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+}
+
+@media (max-width: 400px) {
+  .flex-grid {
+    display: block;
+  }
+}

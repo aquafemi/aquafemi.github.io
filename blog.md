@@ -11,22 +11,27 @@ custom_css: blog.css
 </h1>
 
 <ul class="blog-list">
-  {% for blog in site.blogs %}
-    {% if blog.title != "Dribble" %}
-      <li>
-        <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-        <span class="post-meta">{{ blog.description }}</span>
-      </li>
-    {% endif %}
-  {% endfor %}
-
-  <!-- Put Dribble at the end -->
-  {% for blog in site.blogs %}
-    {% if blog.title == "Dribble" %}
-      <li>
-        <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-        <span class="post-meta">{{ blog.description }}</span>
-      </li>
-    {% endif %}
-  {% endfor %}
+  <div class="flex-grid">
+    {% for blog in site.blogs %}
+      {% if blog.title != "Dribble" %}
+        <div class="col">
+          <li>
+            <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+            <span class="post-meta">{{ blog.description }}</span>
+          </li>
+        </div>
+      {% endif %}
+    {% endfor %}
+    <!-- Put Dribble at the end -->
+    {% for blog in site.blogs %}
+      {% if blog.title == "Dribble" %}
+        <div class="col">
+          <li>
+            <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+            <span class="post-meta">{{ blog.description }}</span>
+          </li>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
 </ul>
