@@ -15,12 +15,10 @@ custom_css: blog.css
       {% if blog.title != "Dribble" %}
         {% capture position %}{% cycle 'odd', 'even' %}{% endcapture %}
         {% cycle '<div class="flex-grid">', '' %}
-          <div class="col">
-            <li>
-              <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-              <span class="post-meta">{{ blog.description }}</span>
-            </li>
-          </div>
+          <li class="col">
+            <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+            <span class="post-meta">{{ blog.description }}</span>
+          </li>
         {% cycle '', '</div>' %}
       {% endif %}
     {% endfor %}
@@ -31,12 +29,10 @@ custom_css: blog.css
     {% for blog in site.blogs %}
       {% if blog.title == "Dribble" %}
         <div class="flex-grid">
-          <div class="col">
-            <li>
-              <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
-              <span class="post-meta">{{ blog.description }}</span>
-            </li>
-          </div>
+          <li class="col">
+            <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
+            <span class="post-meta">{{ blog.description }}</span>
+          </li>
         </div>
       {% endif %}
     {% endfor %}
