@@ -2,8 +2,8 @@
 title: dribble
 custom_css: blog.css
 layout: landing
-include_search: true
 description: Everything else goes here
+include_search: true
 include_excerpts: true
 include_number_of_words: true
 include_categories: false

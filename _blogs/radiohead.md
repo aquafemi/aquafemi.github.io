@@ -5,8 +5,8 @@ custom_js:
 - jquery.slides.min.js
 - slideshow.js
 layout: landing
-include_search: true
 description: Kicking squealing gucci little piggy
+include_search: true
 include_excerpts: true
 include_number_of_words: true
 include_categories: false
