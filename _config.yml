@@ -13,6 +13,9 @@ collections:
   blogs:
     permalink: /:collection/:name/
     output: true
+  fake:
+    permalink: /:collection/:name/
+    output: true
 
 permalink: /:collection/:path/
 
