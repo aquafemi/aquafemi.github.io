@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Blog
-permalink: /blog/
+title: Blogs
+permalink: /blogs/
 layout: default
 custom_css: blog.css
 ---
@@ -37,3 +37,15 @@ custom_css: blog.css
       {% endif %}
     {% endfor %}
 </ul>
+
+Coming soon:
+
+*  Hacking is the new warfare
+*  Why Magi is a terrible anime
+*  Why anime is doomed
+*  What makes Radiohead so great
+*  How to be an ally?
+*  Affirmative action
+*  Album cover language
+*  Animation is powerful
+*  Communism
