@@ -1,0 +1,23 @@
+<h1 class="page-heading">Timeline</h1>
+
+<div style="display: flex;">
+  {%- unless include.preview -%}
+    <div>
+      <div id="slider"></div>
+    </div>
+  {%- endunless -%}
+
+  <div style="flex-grow: 1;">
+    {% for event in site.data.timeline | limit: include.num_events %}
+      {%- if include.preview -%}
+        <div class="timeline-event">
+      {%- else -%}
+        <div class="timeline-event" data-toggle="tooltip" title="{{ event.description }}">
+      {%- endif -%}
+        <h2>{{ event.name }}</h2>
+        <p>{{ event.time }}</p>
+        <p>{{ event.location }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
