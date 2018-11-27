@@ -22,7 +22,7 @@
   {% else %}
     {% for category in site.categories %}
       {% assign category_name = category | first %}
-      {% if category_name == page.category %}
+      {% if category_name == page.title %}
         {% for post in category.last %}
           <li>
             <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>

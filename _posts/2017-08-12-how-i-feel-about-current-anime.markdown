@@ -2,7 +2,7 @@
 layout: post
 title:  "How I Feel About Current Anime"
 date:   2017-08-12 14:46:00
-categories: Anime
+categories: anime
 ---
 
 A lot of us remember the _good old days_ of anime. On Saturday nights we'd rally around the TV screen to see who would reach

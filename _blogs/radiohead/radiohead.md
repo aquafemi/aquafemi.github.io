@@ -1,5 +1,5 @@
 ---
-title: Radiohead
+title: radiohead
 custom_css: blog.css
 custom_js:
 - jquery.slides.min.js
@@ -7,7 +7,6 @@ custom_js:
 layout: landing
 include_search: true
 description: Kicking squealing gucci little piggy
-category: Radiohead
 include_excerpts: true
 include_number_of_words: true
 include_categories: false

@@ -12,7 +12,7 @@ custom_css: blog.css
 
 <ul class="blog-list">
     {% for blog in site.blogs %}
-      {% if blog.title != "Dribble" %}
+      {% if blog.title != "dribble" %}
         {% capture position %}{% cycle 'odd', 'even' %}{% endcapture %}
         {% cycle '<div class="flex-grid">', '' %}
           <li class="col">
@@ -25,9 +25,9 @@ custom_css: blog.css
     {% if position == "odd" %}
       </div>
     {% endif %}
-    <!-- Put Dribble at the end -->
+    <!-- Put dribble at the end -->
     {% for blog in site.blogs %}
-      {% if blog.title == "Dribble" %}
+      {% if blog.title == "dribble" %}
         <div class="flex-grid">
           <li class="col">
             <h2><a href="{{ blog.url }}">{{ blog.title }}</a></h2>
