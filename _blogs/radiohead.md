@@ -10,6 +10,7 @@ include_search: true
 include_excerpts: true
 include_number_of_words: true
 include_categories: false
+include_dates: true
 ---
 <div id="slides">
   <img src="/assets/pablo.jpg" class="fit">
