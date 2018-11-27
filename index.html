@@ -5,9 +5,11 @@ category: All
 include_excerpts: false
 include_number_of_words: false
 include_categories: true
+include_dates: true
 ---
 <div class="home">
 
-  {% include posts.html %}
-
+  {%- include timeline.html preview=true num_events=1 -%}
+  {% include posts.html number_of_words=page.include_number_of_words excerpts=page.include_excerpts 
+    categories=page.include_categories dates=page.include_dates %}
 </div>

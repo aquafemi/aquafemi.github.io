@@ -11,7 +11,8 @@
     {{ content }}
 
     <div class="wrapper">
-      {% include posts.html %}
+      {% include posts.html number_of_words=page.include_number_of_words excerpts=page.include_excerpts 
+        categories=page.include_categories dates=page.include_dates %}
     </div>
 
     {% include footer.html %}

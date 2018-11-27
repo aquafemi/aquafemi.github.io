@@ -1,4 +1,8 @@
-<h1 class="page-heading">Posts</h1>
+{%- if page.category == 'All' -%}
+  <h1 class="page-heading"><a href="/blogs/">Posts</a></h1>
+{%- else -%}
+  <h1 class="page-heading">Posts</h1>
+{%- endif -%}
 
 <ul class="post-list">
   {% if page.category == "All" %}
@@ -6,15 +10,17 @@
       <li>
         <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
         <span class="post-meta">
-          {{ post.date | date: "%b %-d, %Y" }}
-          {% if page.include_categories %}
+          {%- if include.dates -%}
+            {{ post.date | date: "%b %-d, %Y" }}
+          {%- endif -%}
+          {% if include.categories %}
             • {% include categories.html categories=post.categories %} 
           {% endif %}
-          {% if page.include_number_of_words %}
+          {% if include.number_of_words %}
             • {{ post.content | number_of_words }} words
           {% endif %}
         </span>
-        {% if page.include_excerpts %}
+        {% if include.excerpts %}
           <p>{{ post.excerpt }}</p>
         {% endif %}
       </li>
@@ -28,14 +34,14 @@
             <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
             <span class="post-meta">
               {{ post.date | date: "%b %-d, %Y" }}
-              {% if page.include_categories %}
+              {% if include.categories %}
                 • {% include categories.html categories=post.categories %}
               {% endif %}
-              {% if page.include_number_of_words %}
+              {% if include.number_of_words %}
                 • {{ post.content | number_of_words }} words
               {% endif %}
             </span>
-            {% if page.include_excerpts %}
+            {% if include.excerpts %}
               <p>{{ post.excerpt }}</p>
             {% endif %}
           </li>
