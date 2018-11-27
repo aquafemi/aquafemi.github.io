@@ -14,5 +14,7 @@ collections:
     permalink: /:collection/:name/
     output: true
 
+permalink: /:collection/:path/
+
 # Build settings
 markdown: kramdown
