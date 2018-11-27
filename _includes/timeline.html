@@ -1,4 +1,8 @@
-<h1 class="page-heading">Timeline</h1>
+{%- if include.preview -%}
+  <h1 class="page-heading"><a href="/timeline/">Timeline</a></h1>
+{%- else -%}
+  <h1 class="page-heading">Timeline</h1>
+{%- endif -%}
 
 <div style="display: flex;">
   {%- unless include.preview -%}
