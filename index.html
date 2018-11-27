@@ -2,14 +2,22 @@
 custom_js: index.js
 layout: default
 category: All
-include_excerpts: false
-include_number_of_words: false
-include_categories: true
-include_dates: true
+include:
+    search: false
+    excerpts: false
+    number_of_words: false
+    categories: true
+    dates: true
+    timeline_preview: true
+    timeline_events: 1
 ---
 <div class="home">
-
-  {%- include timeline.html preview=true num_events=1 -%}
-  {% include posts.html number_of_words=page.include_number_of_words excerpts=page.include_excerpts 
-    categories=page.include_categories dates=page.include_dates %}
+  {%- include timeline.html 
+    preview=page.include.timeline_preview 
+    num_events=page.include.timeline_events -%}
+  {% include posts.html 
+    number_of_words=page.include.number_of_words 
+    excerpts=page.include.excerpts 
+    categories=page.include.categories 
+    dates=page.include.dates %}
 </div>

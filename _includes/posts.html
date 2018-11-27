@@ -1,3 +1,9 @@
+{%- if page.category == 'All' -%}
+  <h1 class="page-heading"><a href="/blogs/">Posts</a></h1>
+{%- else -%}
+  <h1 class="page-heading">Posts</h1>
+{%- endif -%}
+
 <ul class="post-list">
   {% for post in site.posts %}
     {% if page.category == "All" or post.categories contains page.title %}

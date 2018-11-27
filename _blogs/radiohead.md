@@ -6,11 +6,12 @@ custom_js:
 - slideshow.js
 layout: landing
 description: Kicking squealing gucci little piggy
-include_search: true
-include_excerpts: true
-include_number_of_words: true
-include_categories: false
-include_dates: true
+include:
+    search: true
+    excerpts: true
+    number_of_words: true
+    categories: false
+    dates: true
 ---
 <div id="slides">
   <img src="/assets/pablo.jpg" class="fit">

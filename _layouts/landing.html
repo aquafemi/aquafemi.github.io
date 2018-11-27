@@ -4,15 +4,18 @@
   <body>
     {% include header.html %}
 
-    {% if page.include_search %}
+    {% if page.include.search %}
       {% include search.html %}
     {% endif %}
 
     {{ content }}
 
     <div class="wrapper">
-      {% include posts.html number_of_words=page.include_number_of_words excerpts=page.include_excerpts 
-        categories=page.include_categories dates=page.include_dates %}
+      {% include posts.html 
+        number_of_words=page.include.number_of_words 
+        excerpts=page.include.excerpts 
+        categories=page.include.categories 
+        dates=page.include.dates %}
     </div>
 
     {% include footer.html %}
