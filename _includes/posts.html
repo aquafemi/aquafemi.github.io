@@ -1,8 +1,8 @@
 <h1 class="page-heading">Posts</h1>
 
 <ul class="post-list">
-  {% for post in site.posts %}
-    {% if page.category == "All" or post.categories contains page.category %}
+  {% if page.category == "All" %}
+    {% for post in site.posts %}
       <li>
         <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
         <span class="post-meta">
@@ -18,6 +18,29 @@
           <p>{{ post.excerpt }}</p>
         {% endif %}
       </li>
-    {% endif %}
-  {% endfor %}
+    {% endfor %}
+  {% else %}
+    {% for category in site.categories %}
+      {% assign category_name = category | first %}
+      {% if category_name == page.category %}
+        {% for post in category.last %}
+          <li>
+            <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+            <span class="post-meta">
+              {{ post.date | date: "%b %-d, %Y" }}
+              {% if page.include_categories %}
+                • {{ post.categories | join: "/" }}
+              {% endif %}
+              {% if page.include_number_of_words %}
+                • {{ post.content | number_of_words }} words
+              {% endif %}
+            </span>
+            {% if page.include_excerpts %}
+              <p>{{ post.excerpt }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 </ul>
