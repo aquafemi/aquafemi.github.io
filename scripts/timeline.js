@@ -3,7 +3,7 @@ $(function() {
     // Style toggle tooltips.
     $('[data-toggle="tooltip"]').tooltip({delay: {hide: 3000}});
 
-    var timelineBoxes = $(".timeline-event, .timeline-line");
+    var timelineEvents = $(".timeline-event");
     var tl = new TimelineLite({
         onUpdate: updateSlider,
         onComplete: onComplete
@@ -43,6 +43,22 @@ $(function() {
         } 
     });
 
-    tl.staggerFrom(timelineBoxes, 1, {x: '-=100', autoAlpha: 0, ease:Power1.easeInOut}, 0.5);
+    // tl.staggerFrom(timelineBoxes, 1, {x: '-=100', autoAlpha: 0, ease:Power1.easeInOut}, 0.5);
+
+    var controller = new ScrollMagic.Controller();
+
+    for (var i = 0; i < timelineEvents.length; i++) {
+        var tween = new TimelineLite()
+            .from(timelineEvents[i], 1, {x: '-=100', autoAlpha: 0, ease:Power1.easeInOut});
+        new ScrollMagic.Scene({
+            triggerElement: timelineEvents[i],
+            offset: 50,
+            triggerHook: "onEnter",
+            duration: "100%"
+        })
+        .setTween(tween)
+        .addIndicators({name: "event " + (i+1) }) // add indicators (requires plugin)
+        .addTo(controller);
+    }
 
 });

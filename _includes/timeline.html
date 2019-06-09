@@ -12,16 +12,17 @@
   {%- endunless -%}
 
   <div style="flex-grow: 1;">
-    {% for event in site.data.timeline | limit: include.num_events %}
+    {%- for i in (0..include.num_events) -%}
+      {%- assign event = site.data.timeline[i] -%}
       {%- if include.preview -%}
-        <div class="timeline-event">
+        <div class="timeline-event" id="event{{i}}">
       {%- else -%}
-        <div class="timeline-event" data-toggle="tooltip" title="{{ event.description }}">
+        <div class="timeline-event" id="event{{i}}" data-toggle="tooltip" title="{{ event.description }}">
       {%- endif -%}
         <h2>{{ event.name }}</h2>
         <p>{{ event.time }}</p>
         <p>{{ event.location }}</p>
       </div>
-    {% endfor %}
+    {%- endfor -%}
   </div>
 </div>
