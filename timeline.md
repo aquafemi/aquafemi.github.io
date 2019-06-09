@@ -9,5 +9,4 @@ custom_js:
 - timeline.js
 ---
 
-{%- assign num_events = site.data.timeline.size | minus: 1 -%}
-{%- include timeline.html preview=false num_events=num_events -%}
+{%- include timeline.html preview=false -%}
