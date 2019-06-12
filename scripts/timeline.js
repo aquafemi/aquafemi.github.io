@@ -54,10 +54,9 @@ $(function() {
             triggerElement: timelineEvents[i],
             offset: 50,
             triggerHook: "onEnter",
-            duration: "100%"
+            duration: "50%"
         })
         .setTween(tween)
-        .addIndicators({name: "event " + (i+1) }) // add indicators (requires plugin)
         .addTo(controller);
     }
 
