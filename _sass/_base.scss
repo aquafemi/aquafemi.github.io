@@ -218,29 +218,3 @@ pre {
     padding: 5px;
     margin-bottom: $timeline-margin;
 }
-
-/**
- * Vertical timeline line
- */
-.timeline-line {
-    position: relative;
-    left: 50%;
-    height: 100px;
-    width: 0;
-    border: 2px solid rgba(255, 0, 0, 0.5);
-}
-
-/**
- * Slider for timeline
- */
-#slider {
-  height: 100%;
-
-  background: repeating-linear-gradient(
-                  45deg,
-                  rgba(255, 0, 0, 0.5),
-                  rgba(255, 0, 0, 0.5) 10px,
-                  rgba(175, 0, 0, 0.5) 10px,
-                  rgba(175, 0, 0, 0.5) 20px
-  );
-}
