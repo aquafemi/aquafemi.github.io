@@ -10,9 +10,6 @@ github_username:  aquafemi
 linkedin_username: oolukoya
 
 collections:
-  blogs:
-    permalink: /:collection/:name/
-    output: true
   fake:
     permalink: /:collection/:name/
     output: true
