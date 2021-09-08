@@ -9,11 +9,6 @@ twitter_username:
 github_username:  aquafemi
 linkedin_username: oolukoya
 
-collections:
-  fake:
-    permalink: /:collection/:name/
-    output: true
-
 permalink: /:collection/:path/
 
 # Build settings
