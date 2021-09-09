@@ -1,15 +1,15 @@
-# Site settings
-title: Under the C
-email: oolukoya96@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  A summary of me.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://femi.xyz" # the base hostname & protocol for your site
-twitter_username:
-github_username:  aquafemi
-linkedin_username: oolukoya
+# User config
+author: "Femi Olukoya"
+tagline: "A summary of me."
+description: "Software engineer experienced in backend ML services and full-stack development - thriving at the intersection of vision and architecture."
+keywords: "Software"
+email: "oolukoya96@gmail.com"
+linkedin: "https://www.linkedin.com/oolukoya"
 
-permalink: /:collection/:path/
-
-# Build settings
-markdown: kramdown
+# Site config
+baseurl: ""
+url: "http://femi.xyz"
+highlighter: rouge
+sass:
+  sass_dir: assets/scss
+  style: compressed
