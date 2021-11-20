@@ -1,0 +1,20 @@
+<div class="mermaid">
+    graph TD
+        id0(DRI)
+        id1[(Queries Repository)]
+        id2(Azure Data Explorer)
+        id3(Power BI Reports)
+        id4[(Documentation)]
+        id5(DRI Playbook)
+        click id1 highlight
+        subgraph Team
+        id0-- Add -->id4
+        id4-- Create -->id5
+        end
+        subgraph Reporting/Analytics
+        id0-- Push --> id1
+        id1-- Deploy -->id2
+        id2-- Update -->id3
+        id1-- Improve -->id4
+        end		
+</div>

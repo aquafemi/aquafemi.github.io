@@ -29,13 +29,17 @@
 					</div>
 				</article>
 				<aside>
-					<ul>
-						{% for image in page.images %}
-						<li>
-							<img src="{{ image.url | prepend: site.baseurl }}" alt="{{ image.alt }}" />
-						</li>
-						{% endfor %}
-					</ul>
+					{% if page.mermaid %}
+						{% include_relative {{ page.mermaid }} %}
+					{% else %}
+						<ul>
+							{% for image in page.images %}
+							<li>
+								<img src="{{ image.url | prepend: site.baseurl }}" alt="{{ image.alt }}" />
+							</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
 				</aside>
 			</div>
 		</section>
@@ -60,6 +64,8 @@
 	<script src="{{ "/assets/scripts/vendor/jquery-1.12.4.min.js" | prepend: site.baseurl }}"></script>
 	<script src="{{ "/assets/scripts/vendor/scrollreveal.min.js" | prepend: site.baseurl }}"></script>
 	<script src="{{ "/assets/scripts/vendor/sticky-kit.min.js" | prepend: site.baseurl }}"></script>
+	<script src="{{ "/assets/scripts/vendor/mermaid.min.js" | prepend: site.baseurl }}"></script>
 	<script src="{{ "/assets/scripts/project.js" | prepend: site.baseurl }}"></script>
+	<script src="{{ "/assets/scripts/diagram.js" | prepend: site.baseurl }}"></script>
 </body>
 </html>

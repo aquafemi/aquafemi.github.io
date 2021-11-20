@@ -225,6 +225,16 @@
 		}
 	}
 
+	.mermaid {
+		display: flex !important; 
+		justify-content: center;
+
+		// .node *:hover {
+		// 	transition: all 0.2s ease-in;
+		// 	opacity: 0;
+		// }
+	}
+
 	img {
 		width: 100%;
 	}
@@ -366,4 +376,22 @@
 .contact,
 .follow {
 	margin-bottom: 3rem;
+}
+
+.mermaidTooltip {
+	position: absolute;
+	text-align: center;
+	max-width: 200px;
+	padding: 2px;
+	font-family: 'trebuchet ms', verdana, arial;
+	font-size: 12px;
+	background: #ffffde;
+	border: 1px solid #aaaa33;
+	border-radius: 2px;
+	pointer-events: none;
+	z-index: 100;
+}
+
+.mermaidClick {
+	background-color: turquoise;
 }
