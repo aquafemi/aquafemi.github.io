@@ -2,6 +2,7 @@
 layout: project
 permalink: /:title/
 category: projects
+mermaid: mermaid/2020-01-15-managedinstancesetup-mermaid.html
 
 meta:
   keywords: "Machine Learning Infrastructure, Backend, Managed Instance, Telemetry"

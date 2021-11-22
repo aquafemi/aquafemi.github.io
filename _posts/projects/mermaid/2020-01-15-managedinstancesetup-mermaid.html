@@ -1,0 +1,22 @@
+<div class="mermaid">
+    flowchart TB
+    Batch(fa:fa-users Azure Batch Job)
+    Setup(fa:fa-filter Compute Setup)
+    NewMicroservices{{fa:fa-search New Microservices}}
+    Microservices{{fa:fa-search Microservices}}
+    Upgrades(fa:fa-chart-bar Upgrades)
+    Analytics[(fa:fa-book App Insights)]
+    subgraph Azure [Azure Machine Learning]
+    direction TB
+    NewMicroservices -- Deploy --> Batch
+    Upgrades -- Deploy --> Batch
+        subgraph Customer [Customer Environment]
+        direction LR
+        Setup-- Initiate -->Microservices
+        Microservices-- Generate -->Telemetry
+        end
+    Customer-- Push -->Analytics
+    end
+    Batch-->|Execute|Customer
+    Customer-->|Get Updates|Batch
+</div>
