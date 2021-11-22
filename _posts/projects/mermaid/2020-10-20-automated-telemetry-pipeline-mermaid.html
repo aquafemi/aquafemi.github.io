@@ -1,20 +1,20 @@
 <div class="mermaid">
-    graph TD
-        id0(DRI)
-        id1[(Queries Repository)]
-        id2(Azure Data Explorer)
-        id3(Power BI Reports)
-        id4[(Documentation)]
-        id5(DRI Playbook)
-        click id1 highlight
-        subgraph Team
-        id0-- Add -->id4
-        id4-- Create -->id5
-        end
-        subgraph Reporting/Analytics
-        id0-- Push --> id1
-        id1-- Deploy -->id2
-        id2-- Update -->id3
-        id1-- Improve -->id4
-        end
+    flowchart TD
+    DRI(fa:fa-users DRI)
+    Queries[(fa:fa-filter Queries Repository)]
+    Data(fa:fa-search Azure Data Explorer)
+    Reports(fa:fa-chart-bar Power BI Reports)
+    Documentation[(fa:fa-book Documentation)]
+    Playbook(fa:fa-tasks DRI Playbook)
+    click Queries highlight
+    subgraph Team
+    DRI-- Add -->Documentation
+    Documentation-- Create -->Playbook
+    end
+    subgraph Reporting/Analytics
+    DRI-- Push --> Queries
+    Queries-- Deploy -->Data
+    Data-- Update -->Reports
+    Queries-- Improve -->Documentation
+    end	
 </div>

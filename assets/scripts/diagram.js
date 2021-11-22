@@ -8,7 +8,7 @@ var config = {
     flowchart:{
         useMaxWidth:true,
         htmlLabels:true,
-        curve:'cardinal',
+        curve:'basic',
     },
     securityLevel:'loose',
 };
