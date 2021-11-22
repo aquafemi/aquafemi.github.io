@@ -4,14 +4,14 @@ permalink: /:title/
 category: projects
 
 meta:
-  keywords: "Machine Learning, Backend, Managed"
+  keywords: "Machine Learning Infrastructure, Backend, Managed Instance, Telemetry"
 
 project:
   title: "Managed Instance Setup"
   type: "Infrastructure"
   url: "https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance"
   logo: "/assets/images/projects/managedinstancesetup/logo.jpg"
-  tech: "Golang, Azure, Azure Batch, Linux"
+  tech: "Golang, Azure Batch, Linux"
 
 agency:
   title: "Microsoft"
@@ -30,9 +30,9 @@ images:
     alt: "Architectural diagram for compute instance within AzureML"
 
 ---
-<p>
-Hosttools 
-- I migrated our existing compute set up to run as part of the Azure Batch job. Script is run in an environment where we don't have direct access to the customer's machine
-- Unix systemd services
-- Monitor mount operations. We give them a storage account with a fileshare and for a bug we didn't yet understand it was disconnecting. Work was to create a service that would remotely detect these errors and provide logging
-Testing - writing mock tests, create a testing directory, make sure it has the correct structure</p>
+
+<p class="text">Migrated our existing compute setup to job based execution in a remote environment</p>
+<br />
+<p class="text">Extended setup process with a microservice framework that leveraged Linux systemd</p>
+<br />
+<p class="text">Added telemetry to automatically publish errors to an analytics server</p>

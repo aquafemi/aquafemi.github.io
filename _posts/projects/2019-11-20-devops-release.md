@@ -4,14 +4,14 @@ permalink: /:title/
 category: projects
 
 meta:
-  keywords: "DevOps, Release, Ubuntu"
+  keywords: "DevOps, Release, Pipelines, Linux, OS Image, Automation"
 
 project:
   title: "Compute Image Customization"
   type: "DevOps"
   url: "https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance"
   logo: "/assets/images/projects/computeimagecustomization/logo.png"
-  tech: "YAML, Azure, Python, Ubuntu"
+  tech: "YAML, Python, Linux"
 
 agency:
   title: "Microsoft"
@@ -29,10 +29,11 @@ images:
     url: "/assets/images/projects/managedinstancesetup/secure-training-environment.png"
     alt: "Red Pineapple website on tablet, mobile and desktop"
 ---
-<p>
-DevOps
-- Building the image, improving the pipeline there. Working across 3-4 different teams
-- Notebook samples building, coordinating releases. Essentially wore a release manager hat
-- On-call. Got on call with customers constantly. Have to try to repro the customer issue or explore their resources (security protocol needed/JIT)
-- Adding RStudio support into the image
-- Making the whole pipeline automated</p>
+
+<p class="text">Integrated tools and libraries into the Compute Instance image such as Jupyter, RStudio, and Tensorflow</p>
+<br />
+<p class="text">Built pipelines to deploy the Ubuntu compute image and Jupyter notebook samples to customers</p>
+<br />
+<p class="text">Devised a 4 team protocol for multi-stage release which enabled stakeholders to initiate and track deployment progress</p>
+<br />
+<p class="text">Improved verification by monitoring status of automated runners and integrating with livesite metrics</p>
