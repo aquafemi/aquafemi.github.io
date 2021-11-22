@@ -1,17 +1,17 @@
 <div class="mermaid">
-    flowchart TD
-    DRI(fa:fa-users DRI)
+    flowchart
+    DRI(fa:fa-user DRI)
     Queries[(fa:fa-filter Queries Repository)]
     Data(fa:fa-search Azure Data Explorer)
-    Reports(fa:fa-chart-bar Power BI Reports)
+    Reports(fa:fa-search Power BI Reports)
     Documentation[(fa:fa-book Documentation)]
     Playbook(fa:fa-tasks DRI Playbook)
     click Queries highlight
-    subgraph Team
+    subgraph Team [fa:fa-users Team]
     DRI-- Add -->Documentation
     Documentation-- Create -->Playbook
     end
-    subgraph Reporting/Analytics
+    subgraph Reporting [fa:fa-exclamation-circle Reporting/Analytics]
     DRI-- Push --> Queries
     Queries-- Deploy -->Data
     Data-- Update -->Reports

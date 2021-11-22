@@ -4,13 +4,13 @@ var highlight = function(node) {
 }
 
 var config = {
-    startOnLoad:true,
+    startOnLoad: true,
     flowchart:{
-        useMaxWidth:true,
-        htmlLabels:true,
-        curve:'basic',
+        useMaxWidth: true,
+        htmlLabels: true,
+        curve: 'linear',
     },
-    securityLevel:'loose',
+    securityLevel: 'loose',
 };
 
 mermaid.initialize(config);

@@ -30,7 +30,7 @@
 				</article>
 				<aside>
 					{% if page.mermaid %}
-						{% include_relative {{ page.mermaid }} %}
+						{% include {{ page.mermaid }} %}
 					{% else %}
 						<ul>
 							{% for image in page.images %}
