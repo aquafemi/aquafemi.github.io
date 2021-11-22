@@ -1,15 +1,16 @@
+{% raw %}
 <div class="mermaid">
     flowchart
     Batch(fa:fa-layer-group Azure Batch Job)
     Setup(fa:fa-terminal Compute Setup)
-    NewMicroservices{{fa:fa-code New Microservices}}
+    Services{{fa:fa-code New Services}}
     Microservices{{fa:fa-code Microservices}}
     Upgrades(fa:fa-tools Upgrades)
-    Analytics[(fa:fa-search App Insights)]
+    Analytics[(fa:fa-chart-line App Insights)]
     Telemetry(fa:fa-signal Telemetry)
     subgraph Azure [fa:fa-cloud Azure Machine Learning]
     direction TB
-    NewMicroservices -- Deploy --> Batch
+    Services -- Deploy --> Batch
     Upgrades -- Deploy --> Batch
         subgraph Customer [fa:fa-globe Customer Environment]
         direction LR
@@ -19,5 +20,6 @@
     Customer-- Push -->Analytics
     end
     Batch-->|Execute|Customer
-    Customer-->|Get Updates|Batch
+    Batch-->|Version Update|Customer
 </div>
+{% endraw %}
