@@ -7,16 +7,15 @@
     Reports(fa:fa-chart-line Power BI Reports)
     Documentation[(fa:fa-book Documentation)]
     Playbook(fa:fa-tasks DRI Playbook)
-    click Queries highlight
     subgraph Team [fa:fa-users Team]
-    DRI-- Add -->Documentation
-    Documentation-- Create -->Playbook
+    DRI-->|Add|Documentation
+    Documentation-->|Create|Playbook
     end
     subgraph Reporting [fa:fa-exclamation-circle Reporting/Analytics]
-    DRI-- Push --> Queries
-    Queries-- Deploy -->Data
-    Data-- Update -->Reports
-    Queries-- Improve -->Documentation
-    end	
+    DRI-->|Push|Queries
+    Queries-->|Deploy|Data
+    Data-->|Update|Reports
+    Queries-->|Improve|Documentation
+    end
 </div>
 {% endraw %}

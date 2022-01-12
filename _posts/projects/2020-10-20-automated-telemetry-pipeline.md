@@ -21,13 +21,13 @@ agency:
 
 images:
   - image:
-    url: "/assets/images/projects/managedinstancesetup/workspace.png"
+    url: "/assets/images/projects/workspace.png"
     alt: "Red Pineapple website on a desktop device"
   - image:
-    url: "/assets/images/projects/managedinstancesetup/compute-page.png"
+    url: "/assets/images/projects/compute-page.png"
     alt: "Red Pineapple website on tablet, mobile and desktop"
   - image:
-    url: "/assets/images/projects/managedinstancesetup/secure-training-environment.png"
+    url: "/assets/images/projects/secure-training-environment.png"
     alt: "Red Pineapple website on tablet, mobile and desktop"
 
 ---

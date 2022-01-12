@@ -1,0 +1,49 @@
+{% raw %}
+<div class="mermaid">
+    flowchart TB
+    Libs(fa:fa-book ML Libraries)
+    Image(fab:fa-ubuntu OS Image)
+    Notebooks(fa:fa-file-alt Notebooks)
+    Pipeline(fa:fa-tasks Pipeline)
+    Samples(fab:fa-github Notebook Samples)
+    Interactive(fa:fa-file-code Interactive Notebooks)
+    Versioned(fa:fa-database Versioned Samples)
+    SDK(fa:fa-code AML SDK)
+    CLI(fa:fa-terminal AML CLI)
+    Release(fa:fa-globe Staged Release)
+    Runners(fa:fa-heartbeat E2E Runners)
+    Creation(fa:fa-plus Instance Creation)
+    Cloning(fa:fa-file-download Samples Cloning)
+    subgraph UITeam [fa:fa-users UI Team]
+    Interactive
+    Versioned
+    end
+    subgraph SDKTeam [fa:fa-users SDK Team]
+    SDK
+    CLI
+    end
+    subgraph NotebooksTeam [fa:fa-users Notebooks Team]
+    Samples
+    end
+    subgraph DevTeam [fa:fa-users Dev Team]
+    Image
+    Notebooks
+    Pipeline
+    end
+    Libs-->|Install|Image
+    Samples-->|Pull|Notebooks
+    Image-->|Start|Pipeline
+    Notebooks-->|Start|Pipeline
+    UITeam--->|Monitor|Release
+    SDKTeam-->|Monitor|Release
+    NotebooksTeam-->|Monitor|Release
+    Pipeline-->|Deploy/Monitor|Release
+    Release-->|Pin Versions|Production
+    subgraph Production [fa:fa-cloud Production]
+    direction BT
+    Runners
+    Creation
+    Cloning
+    end
+</div>
+{% endraw %}

@@ -2,31 +2,32 @@
 layout: project
 permalink: /:title/
 category: projects
+mermaid: mermaid/2019-11-20-compute-instance-devops-mermaid.html
 
 meta:
   keywords: "DevOps, Release, Pipelines, Linux, OS Image, Automation"
 
 project:
-  title: "Compute Image Customization"
+  title: "Compute Instance Devops"
   type: "DevOps"
   url: "https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance"
-  logo: "/assets/images/projects/computeimagecustomization/logo.png"
+  logo: "/assets/images/projects/computeinstancedevops/logo.png"
   tech: "YAML, Python, Linux"
 
 agency:
   title: "Microsoft"
   url: "https://azure.microsoft.com/en-us/services/machine-learning/"
-  year: "2019"
+  year: "2019-2020"
 
 images:
   - image:
-    url: "/assets/images/projects/managedinstancesetup/workspace.png"
+    url: "/assets/images/projects/workspace.png"
     alt: "Red Pineapple website on a desktop device"
   - image:
-    url: "/assets/images/projects/managedinstancesetup/compute-page.png"
+    url: "/assets/images/projects/compute-page.png"
     alt: "Red Pineapple website on tablet, mobile and desktop"
   - image:
-    url: "/assets/images/projects/managedinstancesetup/secure-training-environment.png"
+    url: "/assets/images/projects/secure-training-environment.png"
     alt: "Red Pineapple website on tablet, mobile and desktop"
 ---
 

@@ -21,13 +21,13 @@ agency:
 
 images:
   - image:
-    url: "/assets/images/projects/managedinstancesetup/workspace.png"
+    url: "/assets/images/projects/workspace.png"
     alt: "The AzureML workspace where users can create and manage ML services"
   - image:
-    url: "/assets/images/projects/managedinstancesetup/compute-page.png"
+    url: "/assets/images/projects/compute-page.png"
     alt: "UI for creating a compute instance"
   - image:
-    url: "/assets/images/projects/managedinstancesetup/secure-training-environment.png"
+    url: "/assets/images/projects/secure-training-environment.png"
     alt: "Architectural diagram for compute instance within AzureML"
 
 ---
