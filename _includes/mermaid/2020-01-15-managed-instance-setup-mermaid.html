@@ -12,7 +12,7 @@
     direction TB
     Services--->|Deploy|Batch
     Upgrades--->|Deploy|Batch
-        subgraph Customer [fa:fa-globe Customer Environment]
+        subgraph Customer [fa:fa-globe Production Environment]
         direction LR
         Setup-->|Initiate|Microservices
         Microservices-->|Generate|Telemetry
