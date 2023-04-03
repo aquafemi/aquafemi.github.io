@@ -2,22 +2,22 @@
 layout: project
 permalink: /:title/
 category: projects
-mermaid: mermaid/2019-05-15-powerbi-filter-pane-experience
+mermaid: mermaid/2019-05-15-powerbi-filter-pane-experience-mermaid.html
 
 meta:
-  keywords: "Frontend, Fullstack, Angular, Typescript, UI, Accessibility"
+  keywords: "Frontend, Fullstack, UI, Accessibility"
 
 project:
-  title: "Compute Instance Devops"
+  title: "PowerBI Filter Pane"
   type: "DevOps"
   url: "https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance"
   logo: "/assets/images/projects/computeinstancedevops/logo.png"
-  tech: "YAML, Python, Linux"
+  tech: "Angular, Typescript, PowerBI"
 
 agency:
   title: "Microsoft"
   url: "https://azure.microsoft.com/en-us/services/machine-learning/"
-  year: "2019-2020"
+  year: "2018-2019"
 
 images:
   - image:
