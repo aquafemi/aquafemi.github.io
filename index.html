@@ -2,43 +2,56 @@
 ---
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>{{ site.author }} / {{ site.tagline }}</title>
 	<meta name="author" content="{{ site.author }}">
 	<meta name="description" content="{{ site.description }}">
 	<meta name="keywords" content="{{ site.keywords }}">
 	{% include head.html %}
+	<link rel="stylesheet" href="https://unpkg.com/xp.css" />
 </head>
+
 <body>
-	{% include header.html %}
 	<main class="content">
-		<section class="intro">
-			<div class="container">
-				<h2>About me.</h2>
-				<p>{{ site.description }}</p>
-			</div>
-		</section>
-		<section class="projects">
-			<div class="container">
-				<h2>Projects I have worked on.</h2>
+		<div class="container">
+			<a title="{{ site.author }}" href="{{ site.baseurl | append: " /" }}">{{ site.author }}</a>
+			<section class="projects">
+				Projects I have worked on
 				<ul class="projects-list">
 					{% for item in site.categories.projects reversed %}
-						<li>
-							<a href="{{ item.url | prepend: site.baseurl }}">
-								<div class="img-wrapper">
-									<img src="{{ item.project.logo | prepend: site.baseurl }}" alt="{{ item.project.title }}" />
-								</div>
-								<span class="h2">{{ item.project.type }}</span>
-								<h3>{{ item.project.title }}</h3>
-							</a>
-						</li>
+					<div class="window" style="margin: 32px">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								{{ item.project.title }}
+							</div>
+
+							<div class="title-bar-controls">
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button aria-label="Close"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>Type: {{ item.project.type }}</p>
+							<p>Tech: {{ item.project.tech }}</p>
+							<section class="field-row" style="justify-content: flex-end">
+								<button><a href="{{ item.url | prepend: site.baseurl }}">Learn More</a></button>
+							</section>
+						</div>
+					</div>
 					{% endfor %}
 				</ul>
-			</div>
-		</section>
+			</section>
+			<a title="{{ site.email }}" href="mailto:{{ site.email }}">Email</a>
+			<ul>
+				<li><a title="LinkedIn" href="{{ site.linkedin }}" target="_blank">LinkedIn</a></li>
+				<li><a title="Instagram" href="{{ site.linkedin }}" target="_blank">Instagram</a></li>
+				<li><a title="Soundcloud" href="{{ site.linkedin }}" target="_blank">Soundcloud</a></li>
+			</ul>
+		</div>
 	</main>
-	{% include footer.html %}
-	<script src="{{ "/assets/scripts/vendor/scrollreveal.min.js" | prepend: site.baseurl }}"></script>
-	<script src="{{ "/assets/scripts/home.js" | prepend: site.baseurl }}"></script>
+	<script src="{{ " /assets/scripts/home.js" | prepend: site.baseurl }}"></script>
 </body>
+
 </html>

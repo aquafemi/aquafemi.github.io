@@ -1,10 +1,10 @@
 # User config
 author: "Femi Olukoya"
-tagline: "A summary of me."
-description: "A software engineer experienced in backend ML infrastructure and full-stack development. I aspire to be at the intersection of unconstrained vision and sound architecture."
+tagline: "Will code for food."
+description: "Senior software engineer currently working Discord's financial platform. I've done full stack, ML infra, and money movement compliance"
 keywords: "Software"
-email: "oolukoya96@gmail.com"
-linkedin: "https://www.linkedin.com/oolukoya"
+email: "femi.was.taken@gmail.com"
+linkedin: "https://www.linkedin.com/aquafemi"
 
 # Site config
 baseurl: ""
