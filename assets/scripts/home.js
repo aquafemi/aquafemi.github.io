@@ -9,10 +9,12 @@ var sr = ScrollReveal({
 sr.reveal('.projects-list a');
 sr.reveal('.posts-list a');
 
-document.getElementById('.open-dialog').addEventListener("click", function() {
-	document.querySelector('.bg-modal').style.display = "flex";
+document.querySelector('open-dialog').addEventListener("click", function() {
+	document.querySelector('.window.bg-modal').style.display = "flex";
+	console.log("opening")
 });
 
 document.querySelector('.close-dialog').addEventListener("click", function() {
-	document.querySelector('.bg-modal').style.display = "none";
+	document.querySelector('.window.bg-modal').style.display = "none";
+	console.log("closing")
 });

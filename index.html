@@ -20,22 +20,22 @@
 				Projects I have worked on
 				<ul class="projects-list">
 					{% for item in site.categories.projects reversed %}
-							<div class="window bg-modal" style="margin: 32px">
-								<div class="title-bar flex">
-									<div class="title-bar-text">
-										{{ item.project.title }}
-									</div>
-
-									<div class="title-bar-controls">
-										<button aria-label="Minimize"></button>
-										<button aria-label="Maximize"></button>
-										<button class="close-dialog" aria-label="Close"></button>
-									</div>
-								</div>
-								<div class="window-body">
-									<h1>This was easy.</h1>
-								</div>
+					<div class="window bg-modal" style="margin: 32px">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								{{ item.project.title }}
 							</div>
+
+							<div class="title-bar-controls">
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button class="close-dialog" aria-label="Close"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<h1>This was easy.</h1>
+						</div>
+					</div>
 					<div class="window" style="margin: 32px">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
@@ -67,7 +67,7 @@
 			</ul>
 		</div>
 	</main>
-	<script src="{{ "/assets/scripts/home.js" | prepend: site.baseurl }}"></script>
+	<script src="{{"/assets/scripts/home.js" | prepend: site.baseurl }}"></script>
 </body>
 
 </html>
