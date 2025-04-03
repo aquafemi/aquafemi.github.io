@@ -40,3 +40,7 @@ function openProject(elementId) {
         console.error(`Element with ID "${elementId}" not found.`);
     }
 }
+
+function revealEmail() {
+	document.getElementById('email-address').style.display = 'inline';
+}
