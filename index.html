@@ -20,22 +20,7 @@
 				Projects I have worked on
 				<ul class="projects-list">
 					{% for item in site.categories.projects reversed %}
-					<div class="window bg-modal" style="margin: 32px">
-						<div class="title-bar flex">
-							<div class="title-bar-text">
-								{{ item.project.title }}
-							</div>
-							<div class="title-bar-controls">
-								<button aria-label="Minimize"></button>
-								<button aria-label="Maximize"></button>
-								<button class="close-dialog" aria-label="Close"></button>
-							</div>
-						</div>
-						<div class="window-body">
-							<h1>This was easy.</h1>
-						</div>
-					</div>
-					<div class="window" style="margin: 32px">
+					<div class="window project-program" style="margin: 32px" id="{{ item.project.title | slugify }}">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								{{ item.project.title }}
@@ -48,6 +33,7 @@
 						<div class="window-body">
 							<p>Type: {{ item.project.type }}</p>
 							<p>Tech: {{ item.project.tech }}</p>
+							<p>Agency: <a title="{{ item.agency.title }}" href="{{ item.agency.url }}" target="_blank" rel="nofollow">{{ item.agency.title }}</a></p>
 							<section class="field-row" style="justify-content: flex-end">
 								<!-- when button is pressed, replace the entire window div with other content -->
 							</section>

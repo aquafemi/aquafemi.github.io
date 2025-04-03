@@ -414,6 +414,11 @@
 	background-color: turquoise;
 }
 
+.project-program {
+	display: none;
+	/* Initially hidden */
+}
+
 /* Taskbar Styling */
 .taskbar {
 	position: fixed;
@@ -423,7 +428,6 @@
 	height: 40px;
 	/* XP taskbar size */
 	background-color: #0078d7;
-	/* Classic XP blue */
 	color: white;
 	display: flex;
 	align-items: center;
@@ -434,7 +438,6 @@
 /* Start Button */
 .start-button {
 	background-color: #008000;
-	/* Classic green Start button */
 	color: white;
 	padding: 5px 15px;
 	font-weight: bold;
@@ -445,28 +448,48 @@
 
 .start-button:hover {
 	background-color: #006400;
-	/* Darker green on hover */
 }
 
-/* Wrapper for programs to ensure left alignment */
-.taskbar-programs {
-	display: flex;
-	flex-grow: 1;
-	/* Allows this section to expand */
-	align-items: center;
+/* Start Menu */
+.start-menu {
+	position: fixed;
+	bottom: 40px;
+	/* Sits right above the taskbar */
+	left: 10px;
+	/* Aligns with the start button */
+	width: 200px;
+	background-color: #f1f1f1;
+	border: 2px solid black;
+	box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+	display: none;
+	/* Initially hidden */
 }
 
-/* Open Programs List (Now Left-Aligned) */
+.start-menu ul {
+	list-style: none;
+	padding: 10px;
+	margin: 0;
+}
+
+.start-menu li {
+	padding: 10px;
+	background-color: #ddd;
+	border-bottom: 1px solid #bbb;
+	cursor: pointer;
+}
+
+.start-menu li:hover {
+	background-color: #ccc;
+}
+
 .taskbar-list {
 	list-style: none;
 	display: flex;
 	gap: 10px;
 	padding: 0;
 	margin: 0 0 0 10px;
-	/* Adds space from the Start button */
 }
 
-/* Individual Taskbar Items */
 .taskbar-list li {
 	background-color: #005a9e;
 	padding: 5px 15px;
@@ -479,7 +502,6 @@
 	background-color: #004580;
 }
 
-/* Taskbar Clock (Right-Aligned) */
 .taskbar-clock {
 	background-color: #005a9e;
 	padding: 5px 10px;
@@ -488,5 +510,4 @@
 	text-align: center;
 	font-family: monospace;
 	margin-left: auto;
-	/* Pushes clock to the right */
 }

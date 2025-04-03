@@ -1,13 +1,25 @@
 <footer class="footer">
 	<div class="container">
-		<section class="taskbar">
-			<button class="start-button">Start</button>
-			<ul class="taskbar-list">
+		<!-- Start Menu (Initially Hidden) -->
+		<div id="start-menu" class="start-menu">
+			<ul>
 				<li><a title="{{ site.email }}" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
 				<li><a title="LinkedIn" href="{{ site.linkedin }}" target="_blank">LinkedIn</a></li>
 				<li><a title="Instagram" href="{{ site.instagram }}" target="_blank">Instagram</a></li>
 				<li><a title="Soundcloud" href="{{ site.soundcloud }}" target="_blank">Soundcloud</a></li>
 				<li><a title="MixCloud" href="{{ site.mixcloud }}" target="_blank">Mixcloud</a></li>
+			</ul>
+		  </div>
+		<section class="taskbar">
+			<div class="start-button" onclick="toggleStartMenu()">Start</div>
+			<ul class="taskbar-list">
+				{% for item in site.categories.projects reversed %}
+					<li>
+						<div class="taskbar-item" onclick="openProject('{{ item.project.title | slugify }}')">
+							{{ item.project.title }}
+						</div>
+					</li>
+				{% endfor %}
 			</ul>
 			<div class="taskbar-clock">Now</div>
 		</section>
