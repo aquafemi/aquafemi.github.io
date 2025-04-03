@@ -1,10 +1,13 @@
 # User config
 author: "Femi Olukoya"
 tagline: "Will code for food."
-description: "Senior software engineer currently working Discord's financial platform. I've done full stack, ML infra, and money movement compliance"
+description: "Senior software engineer currently working Discord"
 keywords: "Software"
 email: "femi.was.taken@gmail.com"
-linkedin: "https://www.linkedin.com/aquafemi"
+linkedin: "https://www.linkedin.com/in/aquafemi"
+instagram: "https://www.instagram.com/aquafemi"
+soundcloud: "https://www.soundcloud.com/aquafemi"
+mixcloud: "https://www.mixcould.com/aquafemi"
 
 # Site config
 baseurl: ""
