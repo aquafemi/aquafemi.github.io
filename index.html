@@ -41,16 +41,15 @@
 								{{ item.project.title }}
 							</div>
 							<div class="title-bar-controls">
-								<button aria-label="Minimize"></button>
-								<button class="open-dialog" aria-label="Maximize"></button>
-								<button aria-label="Close"></button>
+								<button class="minimize-dialog" aria-label="Minimize"></button>
+								<button class="maximize-dialog" aria-label="Maximize"></button>
 							</div>
 						</div>
 						<div class="window-body">
 							<p>Type: {{ item.project.type }}</p>
 							<p>Tech: {{ item.project.tech }}</p>
 							<section class="field-row" style="justify-content: flex-end">
-								<button><a href="{{ item.url | prepend: site.baseurl }}">Learn More</a></button>
+								<!-- when button is pressed, replace the entire window div with other content -->
 							</section>
 						</div>
 					</div>
