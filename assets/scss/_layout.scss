@@ -112,6 +112,7 @@
 				&:before {
 					opacity: 1;
 				}
+
 				&:after {
 					opacity: .45;
 				}
@@ -134,10 +135,10 @@
 			margin-left: -4.4rem;
 			opacity: 0;
 			-webkit-transition: all .5s ease-in-out;
-    		transition: all .5s ease-in-out;
-    		-webkit-transition-delay: .25s;
-    		transition-delay: .25s;
-    		z-index: 2;
+			transition: all .5s ease-in-out;
+			-webkit-transition-delay: .25s;
+			transition-delay: .25s;
+			z-index: 2;
 		}
 
 		&:after {
@@ -151,8 +152,8 @@
 			left: 0;
 			opacity: 0;
 			-webkit-transition: all .5s ease-in-out;
-    		transition: all .5s ease-in-out;
-    		z-index: 1;
+			transition: all .5s ease-in-out;
+			z-index: 1;
 		}
 	}
 
@@ -244,7 +245,7 @@
 	}
 
 	.mermaid {
-		display: flex !important; 
+		display: flex !important;
 		justify-content: center;
 
 		// .node *:hover {
@@ -341,6 +342,7 @@
 	}
 
 	span {
+
 		&:after,
 		&:before {
 			position: relative;
@@ -413,3 +415,73 @@
 .mermaidClick {
 	background-color: turquoise;
 }
+
+/* Taskbar Styling */
+.taskbar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 40px; /* XP taskbar size */
+	background-color: #0078d7; /* Classic XP blue */
+	color: white;
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Start Button */
+  .start-button {
+	background-color: #008000; /* Classic green Start button */
+	color: white;
+	padding: 5px 15px;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.2s;
+  }
+  
+  .start-button:hover {
+	background-color: #006400; /* Darker green on hover */
+  }
+  
+  /* Wrapper for programs to ensure left alignment */
+  .taskbar-programs {
+	display: flex;
+	flex-grow: 1; /* Allows this section to expand */
+	align-items: center;
+  }
+  
+  /* Open Programs List (Now Left-Aligned) */
+  .taskbar-list {
+	list-style: none;
+	display: flex;
+	gap: 10px;
+	padding: 0;
+	margin: 0 0 0 10px; /* Adds space from the Start button */
+  }
+  
+  /* Individual Taskbar Items */
+  .taskbar-list li {
+	background-color: #005a9e;
+	padding: 5px 15px;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: background 0.2s;
+  }
+  
+  .taskbar-list li:hover {
+	background-color: #004580;
+  }
+  
+  /* Taskbar Clock (Right Side) */
+  .taskbar-clock {
+	background-color: #005a9e;
+	padding: 5px 10px;
+	border-radius: 3px;
+	min-width: 60px;
+	text-align: center;
+	font-family: monospace;
+  }
+  

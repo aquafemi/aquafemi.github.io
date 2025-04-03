@@ -28,19 +28,6 @@
 						<p>{{ page.agency.year }}</p>
 					</div>
 				</article>
-				<aside>
-					{% if page.mermaid %}
-						{% include {{ page.mermaid }} %}
-					{% else %}
-						<ul>
-							{% for image in page.images %}
-							<li>
-								<img src="{{ image.url | prepend: site.baseurl }}" alt="{{ image.alt }}" />
-							</li>
-							{% endfor %}
-						</ul>
-					{% endif %}
-				</aside>
 			</div>
 		</section>
 		<section class="project-navigation">
