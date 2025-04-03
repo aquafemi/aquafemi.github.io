@@ -10,14 +10,18 @@
 	<meta name="keywords" content="{{ site.keywords }}">
 	{% include head.html %}
 	<link rel="stylesheet" href="https://unpkg.com/xp.css" />
+	<style>
+        body {
+            background: url("{{ '/assets/images/splash-screen.webp' | prepend: site.baseurl }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 
 <body>
 	<main class="content">
 		<div class="container-home">
-			<a title="{{ site.author }}" href="{{ site.baseurl | append: " /" }}">{{ site.author }}</a>
 			<section class="projects">
-				Projects I have worked on
 				<ul class="projects-list">
 					{% for item in site.categories.projects reversed %}
 					<div class="window project-program" style="margin: 32px" id="{{ item.project.title | slugify }}">
