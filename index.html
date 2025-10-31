@@ -1,18 +1,37 @@
----
----
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>{{ site.author }} / {{ site.tagline }}</title>
-	<meta name="author" content="{{ site.author }}">
-	<meta name="description" content="{{ site.description }}">
-	<meta name="keywords" content="{{ site.keywords }}">
-	{% include head.html %}
+	<title>Femi Olukoya / Will code for food.</title>
+	<meta name="author" content="Femi Olukoya">
+	<meta name="description" content="Senior software engineer currently working Discord">
+	<meta name="keywords" content="Software">
+	<meta charset="UTF-8">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118960441-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118960441-1');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="index,follow">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"> -->
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="https://unpkg.com/xp.css" />
 	<style>
         body {
-            background: url("{{ '/assets/images/splash-screen.webp' | prepend: site.baseurl }}") no-repeat center center fixed;
+            background: url("/assets/images/splash-screen.webp") no-repeat center center fixed;
             background-size: cover;
         }
     </style>
@@ -23,11 +42,11 @@
 		<div class="container-home">
 			<section class="projects">
 				<ul class="projects-list">
-					{% for item in site.categories.projects reversed %}
-					<div class="window project-program" style="margin: 32px" id="{{ item.project.title | slugify }}">
+					
+					<div class="window project-program" style="margin: 32px" id="powerbi-filter-pane">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								{{ item.project.title }}
+								PowerBI Filter Pane
 							</div>
 							<div class="title-bar-controls">
 								<button class="minimize-dialog" aria-label="Minimize"></button>
@@ -35,21 +54,180 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<p>Type: {{ item.project.type }}</p>
-							<p>Tech: {{ item.project.tech }}</p>
-							<p>Agency: <a title="{{ item.agency.title }}" href="{{ item.agency.url }}" target="_blank" rel="nofollow">{{ item.agency.title }}</a></p>
+							<p>Type: DevOps</p>
+							<p>Tech: Angular, Typescript, PowerBI</p>
+							<p>Agency: <a title="Microsoft" href="" target="_blank" rel="nofollow">Microsoft</a></p>
 							<section class="field-row" style="justify-content: flex-end">
 								<!-- when button is pressed, replace the entire window div with other content -->
 							</section>
 						</div>
 					</div>
-					{% endfor %}
+					
+					<div class="window project-program" style="margin: 32px" id="compute-instance-devops">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								Compute Instance Devops
+							</div>
+							<div class="title-bar-controls">
+								<button class="minimize-dialog" aria-label="Minimize"></button>
+								<button class="maximize-dialog" aria-label="Maximize"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>Type: DevOps</p>
+							<p>Tech: YAML, Python, Linux</p>
+							<p>Agency: <a title="Microsoft" href="https://azure.microsoft.com/en-us/services/machine-learning/" target="_blank" rel="nofollow">Microsoft</a></p>
+							<section class="field-row" style="justify-content: flex-end">
+								<!-- when button is pressed, replace the entire window div with other content -->
+							</section>
+						</div>
+					</div>
+					
+					<div class="window project-program" style="margin: 32px" id="managed-instance-setup">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								Managed Instance Setup
+							</div>
+							<div class="title-bar-controls">
+								<button class="minimize-dialog" aria-label="Minimize"></button>
+								<button class="maximize-dialog" aria-label="Maximize"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>Type: Infrastructure</p>
+							<p>Tech: Golang, Azure Batch, Linux</p>
+							<p>Agency: <a title="Microsoft" href="https://azure.microsoft.com/en-us/services/machine-learning/" target="_blank" rel="nofollow">Microsoft</a></p>
+							<section class="field-row" style="justify-content: flex-end">
+								<!-- when button is pressed, replace the entire window div with other content -->
+							</section>
+						</div>
+					</div>
+					
+					<div class="window project-program" style="margin: 32px" id="automated-telemetry-pipeline">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								Automated Telemetry Pipeline
+							</div>
+							<div class="title-bar-controls">
+								<button class="minimize-dialog" aria-label="Minimize"></button>
+								<button class="maximize-dialog" aria-label="Maximize"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>Type: Telemetry</p>
+							<p>Tech: Kusto, YAML, Azure, Linux</p>
+							<p>Agency: <a title="Microsoft" href="https://azure.microsoft.com/en-us/services/machine-learning/" target="_blank" rel="nofollow">Microsoft</a></p>
+							<section class="field-row" style="justify-content: flex-end">
+								<!-- when button is pressed, replace the entire window div with other content -->
+							</section>
+						</div>
+					</div>
+					
+					<div class="window project-program" style="margin: 32px" id="pic-a-dish">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								Pic a Dish
+							</div>
+							<div class="title-bar-controls">
+								<button class="minimize-dialog" aria-label="Minimize"></button>
+								<button class="maximize-dialog" aria-label="Maximize"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>Type: Infrastructure</p>
+							<p>Tech: React, JavaScript, Node.JS, AWS Amplify</p>
+							<p>Agency: <a title="Self" href="" target="_blank" rel="nofollow">Self</a></p>
+							<section class="field-row" style="justify-content: flex-end">
+								<!-- when button is pressed, replace the entire window div with other content -->
+							</section>
+						</div>
+					</div>
+					
+					<div class="window project-program" style="margin: 32px" id="money-movement-controls-engine">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								Money Movement Controls Engine
+							</div>
+							<div class="title-bar-controls">
+								<button class="minimize-dialog" aria-label="Minimize"></button>
+								<button class="maximize-dialog" aria-label="Maximize"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>Type: Backend</p>
+							<p>Tech: Java, Ruby, PrestoSQL</p>
+							<p>Agency: <a title="Stripe" href="https://stripe.com/" target="_blank" rel="nofollow">Stripe</a></p>
+							<section class="field-row" style="justify-content: flex-end">
+								<!-- when button is pressed, replace the entire window div with other content -->
+							</section>
+						</div>
+					</div>
+					
 				</ul>
 			</section>
-			{% include footer.html %}
+			<footer class="footer">
+	<div class="container">
+		<!-- Start Menu (Initially Hidden) -->
+		<div id="start-menu" class="start-menu">
+			<ul>
+				<li>
+					<a title="Email" onclick="revealEmail()">Email</a>
+					<span id="email-address" style="display: none;">femi.was.taken@gmail.com</span>
+				</li>
+				<li><a title="LinkedIn" href="https://www.linkedin.com/in/aquafemi" target="_blank">LinkedIn</a></li>
+				<li><a title="Instagram" href="https://www.instagram.com/aquafemi" target="_blank">Instagram</a></li>
+				<li><a title="Soundcloud" href="https://www.soundcloud.com/aquafemi" target="_blank">Soundcloud</a></li>
+				<li><a title="MixCloud" href="https://www.mixcloud.com/aquafemi" target="_blank">Mixcloud</a></li>
+			</ul>
+		  </div>
+		<section class="taskbar">
+			<div class="start-button" onclick="toggleStartMenu()">Start</div>
+			<ul class="taskbar-list">
+				
+					<li>
+						<div class="taskbar-item" onclick="openProject('powerbi-filter-pane')">
+							PowerBI Filter Pane
+						</div>
+					</li>
+				
+					<li>
+						<div class="taskbar-item" onclick="openProject('compute-instance-devops')">
+							Compute Instance Devops
+						</div>
+					</li>
+				
+					<li>
+						<div class="taskbar-item" onclick="openProject('managed-instance-setup')">
+							Managed Instance Setup
+						</div>
+					</li>
+				
+					<li>
+						<div class="taskbar-item" onclick="openProject('automated-telemetry-pipeline')">
+							Automated Telemetry Pipeline
+						</div>
+					</li>
+				
+					<li>
+						<div class="taskbar-item" onclick="openProject('pic-a-dish')">
+							Pic a Dish
+						</div>
+					</li>
+				
+					<li>
+						<div class="taskbar-item" onclick="openProject('money-movement-controls-engine')">
+							Money Movement Controls Engine
+						</div>
+					</li>
+				
+			</ul>
+			<div class="taskbar-clock">Now</div>
+		</section>
+	</div>
+</footer>
 		</div>
 	</main>
-	<script src="{{"/assets/scripts/home.js" | prepend: site.baseurl }}"></script>
+	<script src="/assets/scripts/home.js"></script>
 </body>
 
 </html>

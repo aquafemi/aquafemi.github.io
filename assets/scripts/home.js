@@ -35,7 +35,7 @@ function openProject(elementId) {
     const element = document.getElementById(elementId);
     if (element) {
         // Toggle between 'none' and 'block'
-        element.style.display = element.style.display === "none" ? "block" : "none";
+        element.style.display = element.style.display === "none" || element.style.display === "" ? "block" : "none";
     } else {
         console.error(`Element with ID "${elementId}" not found.`);
     }
