@@ -1,55 +1,51 @@
-# Pineapple
+# femi.xyz
 
-Pineapple is a minimalistic [Jekyll](https://jekyllrb.com) portfolio theme that focuses on putting your projects in the spotlight.
+Personal portfolio website for Femi Olukoya.
 
-![Pineapple screenshot](https://user-images.githubusercontent.com/9528895/38713105-6dda8a74-3ec7-11e8-8062-8aa6cf24c795.jpg)
+## About
 
-See Pineapple in action on the [demo site](https://arnolds.io/pineapple/).
+A minimalist portfolio showcasing software engineering projects using a Windows XP-inspired design.
 
-## Contents
+## Tech Stack
 
-- [Setup](#setup)
-- [Deploy to Github Pages](#deploy-to-github-pages)
-- [Creating projects](#creating-projects)
-- [Resources](#resources)
-- [License](#license)
+- **HTML/CSS/JS**: Pure vanilla implementation (no frameworks)
+- **Hosting**: Cloudflare Pages
+- **DNS**: Cloudflare
+- **Domain**: [femi.xyz](https://femi.xyz)
 
-## Setup
+## Features
 
-Install dependencies:
+- Static site (no build process required)
+- Progressive Web App (PWA) support
+- Responsive design
+- Fast global CDN delivery via Cloudflare
 
-```
-$ gem install jekyll bundler
-```
+## Development
 
-Pulldown the project:
+To run locally:
 
-```
-$ git clone git@github.com:arnolds/pineapple.git
-$ cd pineapple
-```
+```bash
+# Start a local server
+python3 -m http.server 8000
 
-Start Jekyll:
-
-```
-$ jekyll serve
+# Visit http://localhost:8000
 ```
 
-Browse to http://127.0.0.1:4000/pineapple/ for some Pineapple goodness.
+## Deployment
 
-## Deploy to Github Pages
+Automatically deployed to Cloudflare Pages on push to `master` branch.
 
-1. Fork this repository, then rename the repository to yourgithubusername.github.io.
-2. Update user configuration values in `_config.yml`, and also set `baseurl: ""`.
+## Structure
 
-## Creating projects
-
-Projects are created as `.md` documents within the `_posts/projects` directory. They follow the same naming conventions as regular [Jekyll posts](https://jekyllrb.com/docs/posts/). Pineapple comes with four example projects, which you should use as a guide for creating your own e.g. [Red Pineapple](_posts/projects/2017-04-01-redpineapple.md).
-
-## Resources
-
-- [Apple Devices PSD Mockup Templates](https://www.graphicsfuel.com/2016/04/apple-devices-psd-mockup-templates/)
-
-## License
-
-Open sourced under the [MIT license](LICENSE.md).
+```
+.
+├── index.html                    # Homepage
+├── assets/
+│   ├── css/style.css            # Compiled styles
+│   ├── scripts/                 # JavaScript files
+│   ├── images/                  # Images and graphics
+│   └── fonts/                   # Web fonts
+├── [project-name]/              # Individual project pages
+│   └── index.html
+└── manifest.json                # PWA manifest
+```
