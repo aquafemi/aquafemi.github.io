@@ -279,6 +279,14 @@ template {
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
 
+/* ============================================================================
+   CUSTOM STYLES
+   ============================================================================ */
+
+/* ==========================================================================
+   Base Styles - Typography, Colors, and Global Elements
+   ========================================================================== */
+
 html {
     font-size: 62.5%
 }
@@ -449,6 +457,10 @@ pre {
     margin: 0 0 3rem
 }
 
+/* ==========================================================================
+   Layout - Containers, Grid, and Structure
+   ========================================================================== */
+
 .bg-modal {
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
@@ -516,6 +528,10 @@ pre {
         margin-bottom: 23.42rem
     }
 }
+
+/* ==========================================================================
+   Projects & Content Sections
+   ========================================================================== */
 
 .intro,
 .projects {
@@ -821,6 +837,10 @@ pre {
     transition: all .3s ease-in-out 0s
 }
 
+/* ==========================================================================
+   Footer & Miscellaneous
+   ========================================================================== */
+
 .footer {
     background: #fafafa;
     bottom: 0;
@@ -867,6 +887,14 @@ pre {
     display: none
 }
 
+/* ============================================================================
+   WINDOWS XP UI - Taskbar, Start Menu, Windows, Desktop Icons
+   ============================================================================ */
+
+/* ==========================================================================
+   Taskbar
+   ========================================================================== */
+
 .taskbar {
     position: fixed;
     bottom: 0;
@@ -878,7 +906,9 @@ pre {
     display: flex;
     align-items: center;
     padding: 0 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    border-top: 1px solid #a0b4c7
 }
 
 .start-button {
@@ -894,35 +924,6 @@ pre {
 
 .start-button:hover {
     background-color: #006400
-}
-
-.start-menu {
-    position: fixed;
-    bottom: 40px;
-    left: 10px;
-    width: 200px;
-    background-color: #f1f1f1;
-    border: 2px solid black;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    display: none;
-    z-index: 9999;
-}
-
-.start-menu ul {
-    list-style: none;
-    padding: 10px;
-    margin: 0
-}
-
-.start-menu li {
-    padding: 10px;
-    background-color: #ddd;
-    border-bottom: 1px solid #bbb;
-    cursor: pointer
-}
-
-.start-menu li:hover {
-    background-color: #ccc
 }
 
 .taskbar-list {
@@ -951,6 +952,10 @@ pre {
     font-family: monospace;
     margin-left: auto
 }
+
+/* ==========================================================================
+   Syntax Highlighting
+   ========================================================================== */
 
 .highlight {
     padding: 3rem
@@ -1209,7 +1214,10 @@ pre {
     color: #a6e22e
 }
 
-/* Desktop Icons */
+/* ==========================================================================
+   Desktop Icons
+   ========================================================================== */
+
 .desktop-icons {
     display: flex;
     flex-direction: column;
@@ -1247,7 +1255,10 @@ pre {
     font-weight: 600
 }
 
-/* Window Dragging & Positioning */
+/* ==========================================================================
+   Window Dragging & Positioning
+   ========================================================================== */
+
 .window {
     transition: all 0.2s ease-out
 }
@@ -1256,7 +1267,10 @@ pre {
     transition: all 0.15s ease-in-out
 }
 
-/* Taskbar Active Window Indicators */
+/* ==========================================================================
+   Taskbar Items & Window Indicators
+   ========================================================================== */
+
 .taskbar-item {
     display: flex;
     align-items: center;
@@ -1284,16 +1298,27 @@ pre {
 .taskbar-item:hover {
     background: linear-gradient(to bottom, #4A7AB6, #0C478A)
 }
+
+.taskbar-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+}
 /* Disable transitions during drag for instant feedback */
 .window.dragging {
     transition: none !important
 }
 
-/* Updated Start Menu Styling (Windows XP style) */
+/* ==========================================================================
+   Start Menu (Windows XP Style)
+   ========================================================================== */
+
 .start-menu {
-    position: fixed;
+    position: absolute;
     bottom: 40px;
-    left: 10px;
+    left: 0;
     width: 250px;
     background-color: #ECE9D8;
     color: black;
@@ -1338,12 +1363,18 @@ pre {
     vertical-align: middle;
 }
 
-.taskbar {
-    box-sizing: border-box;
-    border-top: 1px solid #a0b4c7
-}
-
 .window-body {
     text-align: center;
     vertical-align: middle;
 }
+
+.start-menu-header {
+    background: linear-gradient(to right, #0A246A, #A6CAF0);
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10px;
+    font-weight: bold;
+  }
