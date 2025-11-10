@@ -1,15 +1,3 @@
-
-
-document.querySelector(".maximize-dialog").addEventListener("click", function () {
-	// open the dialog
-	console.log("Dialog maximized");
-});
-
-document.querySelector(".minimize-dialog").addEventListener("click", function () {
-	// open the dialog
-	console.log("Dialog minimized");
-});
-
 function toggleStartMenu() {
 	let menu = document.getElementById("start-menu");
 
@@ -31,14 +19,14 @@ document.addEventListener("click", function (event) {
 	}
 });
 
-function openProject(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        // Toggle between 'none' and 'block'
-        element.style.display = element.style.display === "none" || element.style.display === "" ? "block" : "none";
-    } else {
-        console.error(`Element with ID "${elementId}" not found.`);
-    }
+function openAgency(elementId) {
+	const element = document.getElementById(elementId);
+	if (element) {
+		// Toggle between 'none' and 'block'
+		element.style.display = element.style.display === "none" || element.style.display === "" ? "block" : "none";
+	} else {
+		console.error(`Element with ID "${elementId}" not found.`);
+	}
 }
 
 function revealEmail() {

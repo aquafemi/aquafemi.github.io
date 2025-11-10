@@ -45,7 +45,5 @@ Automatically deployed to Cloudflare Pages on push to `master` branch.
 │   ├── scripts/                 # JavaScript files
 │   ├── images/                  # Images and graphics
 │   └── fonts/                   # Web fonts
-├── [project-name]/              # Individual project pages
-│   └── index.html
 └── manifest.json                # PWA manifest
 ```
