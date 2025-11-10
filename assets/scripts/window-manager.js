@@ -33,16 +33,32 @@ class WindowManager {
 
 		// Update taskbar to hide items for closed windows
 		this.updateTaskbar();
+
+		// Open "About Me" window by default
+		setTimeout(() => {
+			this.openWindow('aboutme');
+		}, 100);
 	}
 
 	/**
 	 * Register a window with the manager
 	 */
 	registerWindow(windowId, windowElement) {
+		// Define different initial positions for each window to avoid overlap
+		const positionMap = {
+			'cmu': { x: 50, y: 50 },
+			'microsoft': { x: 100, y: 100 },
+			'stripe': { x: 150, y: 150 },
+			'discord': { x: 200, y: 200 },
+			'aboutme': { x: 250, y: 100 },
+			'mail': { x: 300, y: 150 }
+		};
+
 		// Set initial position if not already positioned
 		const computedStyle = window.getComputedStyle(windowElement);
-		const initialX = computedStyle.left === 'auto' ? 100 : parseInt(computedStyle.left);
-		const initialY = computedStyle.top === 'auto' ? 100 : parseInt(computedStyle.top);
+		const defaultPosition = positionMap[windowId] || { x: 100, y: 100 };
+		const initialX = computedStyle.left === 'auto' ? defaultPosition.x : parseInt(computedStyle.left);
+		const initialY = computedStyle.top === 'auto' ? defaultPosition.y : parseInt(computedStyle.top);
 
 		// Check if window is initially visible
 		const isInitiallyVisible = windowElement.style.display !== 'none';

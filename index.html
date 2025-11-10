@@ -7,37 +7,37 @@
 	<meta name="description" content="Senior software engineer currently working Discord">
 	<meta name="keywords" content="Software">
 	<meta charset="UTF-8">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118960441-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118960441-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-  gtag('config', 'UA-118960441-1');
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="robots" content="index,follow">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+		gtag('config', 'UA-118960441-1');
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="robots" content="index,follow">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"> -->
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="https://unpkg.com/xp.css" />
 	<style>
-        body {
-            background: url("/assets/images/splash-screen.webp") no-repeat center center fixed;
-            background-size: cover;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+		body {
+			background: url("/assets/images/splash-screen.webp") no-repeat center center fixed;
+			background-size: cover;
+			overflow-x: hidden;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
 </head>
 
 <body>
@@ -45,6 +45,10 @@
 		<div class="container-home">
 			<!-- Desktop Icons -->
 			<div class="desktop-icons">
+				<div class="desktop-icon" onclick="windowManager.openWindow('aboutme')">
+					<img src="/favicon.ico" alt="About Me">
+					<span>About Me</span>
+				</div>
 				<div class="desktop-icon" onclick="windowManager.openWindow('cmu')">
 					<img src="/assets/images/icons/cmu.ico" alt="Carnegie Mellon">
 					<span>Carnegie Mellon</span>
@@ -61,14 +65,44 @@
 					<img src="/assets/images/icons/discord.ico" alt="Discord">
 					<span>Discord</span>
 				</div>
-				<div class="desktop-icon" onclick="windowManager.openWindow('misc')">
-					<img src="/favicon.ico" alt="Misc">
-					<span>Misc</span>
+				<div class="desktop-icon" onclick="windowManager.openWindow('mail')">
+					<img src="/assets/images/icons/mail.ico" alt="Mail">
+					<span>Mail</span>
 				</div>
 			</div>
 
 			<section class="projects">
 				<ul class="projects-list">
+					<div class="window project-program" id="aboutme" style="display: none;">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								About Me
+							</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button aria-label="Close"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<h3>Hey! I'm Femi, welcome to my space.</h3>
+							<p>Senior Software Engineer @ Discord</p>
+							<p>Carnegie Mellon '17 | Electrical and Computer Engineering</p>
+							<h4>In <a title="MixCloud" href="https://www.mixcloud.com/aquafemi" target="_blank">DJ</a>
+								🎧, <a title="Soundcloud" href="https://www.soundcloud.com/aquafemi"
+									target="_blank">produce</a> 🎶, nap 😴, and things like this website
+								🛠️</h4>
+							<section class="field-row" style="justify-content: center">
+								<button>OK</button>
+								<button>Cancel</button>
+							</section>
+						</div>
+						<div class="status-bar">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Slide 1</p>
+							<p class="status-bar-field">CPU Usage: 14%</p>
+						</div>
+					</div>
 
 					<div class="window project-program" id="cmu" style="display: none;">
 						<div class="title-bar flex">
@@ -82,8 +116,20 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<p>Got my Bachelors in Electrical and Computer Engineering. I studied the full spectrum of hardware and software</p> 
-							<p> from analog circuits and signal processing to distributed systems and software engineering. I used (and forgot) a bunch of tech</p>
+							<p>Got my Bachelors in Electrical and Computer Engineering. I studied the full spectrum of
+								hardware and software</p>
+							<p> from analog circuits and signal processing to distributed systems and software
+								engineering. I used (and forgot) a bunch of tech</p>
+							<section class="field-row" style="justify-content: center">
+								<button>OK</button>
+								<button>Cancel</button>
+							</section>
+						</div>
+
+						<div class="status-bar">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Slide 2</p>
+							<p class="status-bar-field">CPU Usage: 14%</p>
 						</div>
 					</div>
 
@@ -99,8 +145,20 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<p>I worked on PowerBI (Business Intelligence) and AzureML (Machine Learning). I wrote a tiny bit of frontend code in Typescript, </p>
-							<p>	did tons of backend using C#, Python, and Go, and built setup services for AzureML compute using Linux systemd</p>
+							<p>I worked on PowerBI (Business Intelligence) and AzureML (Machine Learning). I wrote a
+								tiny bit of frontend code in Typescript, </p>
+							<p> did tons of backend using C#, Python, and Go, and built setup services for AzureML
+								compute using Linux systemd</p>
+							<section class="field-row" style="justify-content: center">
+								<button>OK</button>
+								<button>Cancel</button>
+							</section>
+						</div>
+
+						<div class="status-bar">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Slide 3</p>
+							<p class="status-bar-field">CPU Usage: 14%</p>
 						</div>
 					</div>
 
@@ -116,7 +174,18 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<p>I built compliance tooling for Money Movement (legal rules for moving money). I developed my backend engineering skills using Java, Ruby and some SQL</p>
+							<p>I built compliance tooling for Money Movement (legal rules for moving money). I developed
+								my backend engineering skills using Java, Ruby and some SQL </p>
+							<section class="field-row" style="justify-content: center">
+								<button>OK</button>
+								<button>Cancel</button>
+							</section>
+						</div>
+
+						<div class="status-bar">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Slide 4</p>
+							<p class="status-bar-field">CPU Usage: 14%</p>
 						</div>
 					</div>
 
@@ -132,14 +201,25 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<p>I work on the Financial Platform. I do mostly backend development in Python and use some SQL here and there.</p>
+							<p>I work on the Financial Platform. I do mostly backend development in Python and use some
+								SQL here and there.</p>
+							<section class="field-row" style="justify-content: center">
+								<button>OK</button>
+								<button>Cancel</button>
+							</section>
+						</div>
+
+						<div class="status-bar">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Slide 5</p>
+							<p class="status-bar-field">CPU Usage: 14%</p>
 						</div>
 					</div>
 
-					<div class="window project-program" id="misc" style="display: none;">
+					<div class="window project-program" id="mail" style="display: none;">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								Misc
+								Mail
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Minimize"></button>
@@ -148,56 +228,113 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<p>In my spare time I work out, <a title="MixCloud" href="https://www.mixcloud.com/aquafemi" target="_blank">DJ</a> 🎧, <a title="Soundcloud" href="https://www.soundcloud.com/aquafemi" target="_blank">produce</a> 🎶, nap 😴, and build random things like this website 🛠️</p>
+							<form id="contact-form" onsubmit="handleContactSubmit(event)">
+								<div class="field-row-stacked">
+									<label for="contact-name">Name</label>
+									<input id="contact-name" type="text" name="name" required />
+								</div>
+								<div class="field-row-stacked">
+									<label for="contact-email">Email</label>
+									<input id="contact-email" type="email" name="email" required />
+								</div>
+								<div class="field-row-stacked">
+									<label for="contact-message">Message</label>
+									<textarea id="contact-message" name="message" rows="6" required></textarea>
+								</div>
+								<section class="field-row" style="justify-content: center">
+									<button type="submit">Send</button>
+								</section>
+							</form>
+						</div>
+
+						<div class="status-bar">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Slide 6</p>
+							<p class="status-bar-field">CPU Usage: 14%</p>
 						</div>
 					</div>
 
 				</ul>
 			</section>
 			<footer class="footer">
-	<div class="container">
-		<!-- Start Menu (Initially Hidden) -->
-		<div id="start-menu" class="start-menu">
-			<ul>
-				<li>
-					<a title="Email" onclick="revealEmail()">Email</a>
-					<span id="email-address" style="display: none;">femi.was.taken@gmail.com</span>
-				</li>
-			</ul>
-		  </div>
-		<section class="taskbar">
-			<div class="start-button" onclick="toggleStartMenu()">Start</div>
-			<ul class="taskbar-list">
-				<li>
-					<div class="taskbar-item" data-window-id="cmu" onclick="windowManager.toggleWindow('cmu')">
-						Carnegie Mellon
+				<div class="container">
+					<!-- Start Menu (Initially Hidden) -->
+					<div id="start-menu" class="start-menu">
+						<ul>
+
+							<li onclick="windowManager.openWindow('aboutme'); toggleStartMenu();">
+								<img src="/favicon.ico" alt="" class="menu-icon">
+								<span>About Me</span>
+							</li>
+							<li onclick="windowManager.openWindow('cmu'); toggleStartMenu();">
+								<img src="/assets/images/icons/cmu.ico" alt="" class="menu-icon">
+								<span>Carnegie Mellon</span>
+							</li>
+							<li onclick="windowManager.openWindow('microsoft'); toggleStartMenu();">
+								<img src="/assets/images/icons/microsoft.ico" alt="" class="menu-icon">
+								<span>Microsoft</span>
+							</li>
+							<li onclick="windowManager.openWindow('stripe'); toggleStartMenu();">
+								<img src="/assets/images/icons/stripe.ico" alt="" class="menu-icon">
+								<span>Stripe</span>
+							</li>
+							<li onclick="windowManager.openWindow('discord'); toggleStartMenu();">
+								<img src="/assets/images/icons/discord.ico" alt="" class="menu-icon">
+								<span>Discord</span>
+							</li>
+							<li onclick="windowManager.openWindow('mail'); toggleStartMenu();">
+								<img src="/assets/images/icons/mail.ico" alt="" class="menu-icon">
+								<span>Mail</span>
+							</li>
+						</ul>
 					</div>
-				</li>
-				<li>
-					<div class="taskbar-item" data-window-id="microsoft" onclick="windowManager.toggleWindow('microsoft')">
-						Microsoft
-					</div>
-				</li>
-				<li>
-					<div class="taskbar-item" data-window-id="stripe" onclick="windowManager.toggleWindow('stripe')">
-						Stripe
-					</div>
-				</li>
-				<li>
-					<div class="taskbar-item" data-window-id="discord" onclick="windowManager.toggleWindow('discord')">
-						Discord
-					</div>
-				</li>
-				<li>
-					<div class="taskbar-item" data-window-id="misc" onclick="windowManager.toggleWindow('misc')">
-						Misc
-					</div>
-				</li>
-			</ul>
-			<div class="taskbar-clock" id="taskbar-clock">Now</div>
-		</section>
-	</div>
-</footer>
+					<section class="taskbar">
+						<div class="start-button" onclick="toggleStartMenu()"><img
+								src="/assets/images/icons/windows-xp.png" alt="" class="menu-icon"><span>start</span>
+						</div>
+						<ul class="taskbar-list">
+							<li>
+								<div class="taskbar-item" data-window-id="cmu"
+									onclick="windowManager.toggleWindow('cmu')">
+									<img src="/assets/images/icons/cmu.ico" alt="" class="taskbar-icon">
+									<span>Carnegie Mellon</span>
+								</div>
+							</li>
+							<li>
+								<div class="taskbar-item" data-window-id="microsoft"
+									onclick="windowManager.toggleWindow('microsoft')">
+									Microsoft
+								</div>
+							</li>
+							<li>
+								<div class="taskbar-item" data-window-id="stripe"
+									onclick="windowManager.toggleWindow('stripe')">
+									Stripe
+								</div>
+							</li>
+							<li>
+								<div class="taskbar-item" data-window-id="discord"
+									onclick="windowManager.toggleWindow('discord')">
+									Discord
+								</div>
+							</li>
+							<li>
+								<div class="taskbar-item" data-window-id="aboutme"
+									onclick="windowManager.toggleWindow('aboutme')">
+									About Me
+								</div>
+							</li>
+							<li>
+								<div class="taskbar-item" data-window-id="mail"
+									onclick="windowManager.toggleWindow('mail')">
+									Mail
+								</div>
+							</li>
+						</ul>
+						<div class="taskbar-clock" id="taskbar-clock">Now</div>
+					</section>
+				</div>
+			</footer>
 		</div>
 	</main>
 	<script src="/assets/scripts/window-manager.js"></script>

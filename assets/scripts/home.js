@@ -45,10 +45,21 @@ document.addEventListener("click", function (event) {
 });
 
 /**
- * Reveal email address in start menu
+ * Handle contact form submission
  */
-function revealEmail() {
-	document.getElementById('email-address').style.display = 'inline';
+function handleContactSubmit(event) {
+	event.preventDefault();
+
+	const form = event.target;
+	const name = form.name.value;
+	const email = form.email.value;
+	const message = form.message.value;
+
+	// Show alert with submission info
+	alert(`Thanks for reaching out, ${name}! I'll get back to you at ${email} soon.`);
+
+	// Clear form
+	form.reset();
 }
 
 /**
