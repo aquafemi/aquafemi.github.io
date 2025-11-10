@@ -33,6 +33,9 @@
         body {
             background: url("/assets/images/splash-screen.webp") no-repeat center center fixed;
             background-size: cover;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
@@ -42,16 +45,24 @@
 		<div class="container-home">
 			<!-- Desktop Icons -->
 			<div class="desktop-icons">
+				<div class="desktop-icon" onclick="windowManager.openWindow('cmu')">
+					<img src="/assets/images/icons/cmu.ico" alt="Carnegie Mellon">
+					<span>Carnegie Mellon</span>
+				</div>
 				<div class="desktop-icon" onclick="windowManager.openWindow('microsoft')">
-					<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect fill='%234CAF50' width='48' height='48' rx='4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='white'%3EM%3C/text%3E%3C/svg%3E" alt="Microsoft">
+					<img src="/assets/images/icons/microsoft.ico" alt="Microsoft">
 					<span>Microsoft</span>
 				</div>
 				<div class="desktop-icon" onclick="windowManager.openWindow('stripe')">
-					<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect fill='%236772E5' width='48' height='48' rx='4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='white'%3ES%3C/text%3E%3C/svg%3E" alt="Stripe">
+					<img src="/assets/images/icons/stripe.ico" alt="Stripe">
 					<span>Stripe</span>
 				</div>
+				<div class="desktop-icon" onclick="windowManager.openWindow('discord')">
+					<img src="/assets/images/icons/discord.ico" alt="Discord">
+					<span>Discord</span>
+				</div>
 				<div class="desktop-icon" onclick="windowManager.openWindow('misc')">
-					<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect fill='%23FF9800' width='48' height='48' rx='4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='white'%3E*%3C/text%3E%3C/svg%3E" alt="Misc">
+					<img src="/favicon.ico" alt="Misc">
 					<span>Misc</span>
 				</div>
 			</div>
@@ -59,7 +70,24 @@
 			<section class="projects">
 				<ul class="projects-list">
 
-					<div class="window project-program" id="microsoft">
+					<div class="window project-program" id="cmu" style="display: none;">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								Carnegie Mellon
+							</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button aria-label="Close"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>Got my Bachelors in Electrical and Computer Engineering. I studied the full spectrum of hardware and software</p> 
+							<p> from analog circuits and signal processing to distributed systems and software engineering. I used (and forgot) a bunch of tech</p>
+						</div>
+					</div>
+
+					<div class="window project-program" id="microsoft" style="display: none;">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Microsoft
@@ -71,25 +99,12 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<h3>PowerBI Filter Pane</h3>
-							<p>Type: DevOps</p>
-							<p>Tech: Angular, Typescript, PowerBI</p>
-							<hr>
-							<h3>Compute Instance Devops</h3>
-							<p>Type: DevOps</p>
-							<p>Tech: YAML, Python, Linux</p>
-							<hr>
-							<h3>Managed Instance Setup</h3>
-							<p>Type: Infrastructure</p>
-							<p>Tech: Golang, Azure Batch, Linux</p>
-							<hr>
-							<h3>Automated Telemetry Pipeline</h3>
-							<p>Type: Telemetry</p>
-							<p>Tech: Kusto, YAML, Azure, Linux</p>
+							<p>I worked on PowerBI (Business Intelligence) and AzureML (Machine Learning). I wrote a tiny bit of frontend code in Typescript, </p>
+							<p>	did tons of backend using C#, Python, and Go, and built setup services for AzureML compute using Linux systemd</p>
 						</div>
 					</div>
 
-					<div class="window project-program" id="stripe">
+					<div class="window project-program" id="stripe" style="display: none;">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Stripe
@@ -101,13 +116,27 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<h3>Money Movement Controls Engine</h3>
-							<p>Type: Backend</p>
-							<p>Tech: Java, Ruby, PrestoSQL</p>
+							<p>I built compliance tooling for Money Movement (legal rules for moving money). I developed my backend engineering skills using Java, Ruby and some SQL</p>
 						</div>
 					</div>
 
-					<div class="window project-program" id="misc">
+					<div class="window project-program" id="discord" style="display: none;">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								Discord
+							</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button aria-label="Close"></button>
+							</div>
+						</div>
+						<div class="window-body">
+							<p>I work on the Financial Platform. I do mostly backend development in Python and use some SQL here and there.</p>
+						</div>
+					</div>
+
+					<div class="window project-program" id="misc" style="display: none;">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Misc
@@ -119,9 +148,7 @@
 							</div>
 						</div>
 						<div class="window-body">
-							<h3>Pic a Dish</h3>
-							<p>Type: Infrastructure</p>
-							<p>Tech: React, JavaScript, Node.JS, AWS Amplify</p>
+							<p>In my spare time I work out, <a title="MixCloud" href="https://www.mixcloud.com/aquafemi" target="_blank">DJ</a> 🎧, <a title="Soundcloud" href="https://www.soundcloud.com/aquafemi" target="_blank">produce</a> 🎶, nap 😴, and build random things like this website 🛠️</p>
 						</div>
 					</div>
 
@@ -136,15 +163,16 @@
 					<a title="Email" onclick="revealEmail()">Email</a>
 					<span id="email-address" style="display: none;">femi.was.taken@gmail.com</span>
 				</li>
-				<li><a title="LinkedIn" href="https://www.linkedin.com/in/aquafemi" target="_blank">LinkedIn</a></li>
-				<li><a title="Instagram" href="https://www.instagram.com/aquafemi" target="_blank">Instagram</a></li>
-				<li><a title="Soundcloud" href="https://www.soundcloud.com/aquafemi" target="_blank">Soundcloud</a></li>
-				<li><a title="MixCloud" href="https://www.mixcloud.com/aquafemi" target="_blank">Mixcloud</a></li>
 			</ul>
 		  </div>
 		<section class="taskbar">
 			<div class="start-button" onclick="toggleStartMenu()">Start</div>
 			<ul class="taskbar-list">
+				<li>
+					<div class="taskbar-item" data-window-id="cmu" onclick="windowManager.toggleWindow('cmu')">
+						Carnegie Mellon
+					</div>
+				</li>
 				<li>
 					<div class="taskbar-item" data-window-id="microsoft" onclick="windowManager.toggleWindow('microsoft')">
 						Microsoft
@@ -153,6 +181,11 @@
 				<li>
 					<div class="taskbar-item" data-window-id="stripe" onclick="windowManager.toggleWindow('stripe')">
 						Stripe
+					</div>
+				</li>
+				<li>
+					<div class="taskbar-item" data-window-id="discord" onclick="windowManager.toggleWindow('discord')">
+						Discord
 					</div>
 				</li>
 				<li>

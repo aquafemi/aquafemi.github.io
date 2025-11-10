@@ -30,6 +30,9 @@ class WindowManager {
 		});
 
 		console.log('WindowManager initialized with', Object.keys(this.windows).length, 'windows');
+
+		// Update taskbar to hide items for closed windows
+		this.updateTaskbar();
 	}
 
 	/**
@@ -41,12 +44,15 @@ class WindowManager {
 		const initialX = computedStyle.left === 'auto' ? 100 : parseInt(computedStyle.left);
 		const initialY = computedStyle.top === 'auto' ? 100 : parseInt(computedStyle.top);
 
+		// Check if window is initially visible
+		const isInitiallyVisible = windowElement.style.display !== 'none';
+
 		this.windows[windowId] = {
 			element: windowElement,
 			position: { x: initialX, y: initialY },
 			previousPosition: null, // Store position before maximizing
 			state: {
-				isOpen: windowElement.style.display !== 'none',
+				isOpen: isInitiallyVisible,
 				isMinimized: false,
 				isMaximized: false
 			},
@@ -150,6 +156,9 @@ class WindowManager {
 			y: event.clientY - rect.top
 		};
 
+		// Add dragging class to disable transitions for instant feedback
+		windowData.element.classList.add('dragging');
+
 		// Bring to front when starting drag
 		this.bringToFront(windowId);
 
@@ -198,6 +207,11 @@ class WindowManager {
 	 */
 	handleMouseUp(event) {
 		if (this.isDragging) {
+			// Remove dragging class to re-enable transitions
+			if (this.currentDragWindow && this.windows[this.currentDragWindow]) {
+				this.windows[this.currentDragWindow].element.classList.remove('dragging');
+			}
+
 			this.isDragging = false;
 			this.currentDragWindow = null;
 

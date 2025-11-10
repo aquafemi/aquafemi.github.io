@@ -289,7 +289,6 @@ body {
     font-family: "Poppins", Helvetica, Arial, sans-serif;
     font-size: 1.8em;
     line-height: 1.6;
-    font-weight: 600;
     -webkit-font-smoothing: antialiased
 }
 
@@ -551,10 +550,6 @@ pre {
         float: left;
         width: 50%
     }
-
-    .projects-list a {
-        padding: 0 1.5rem
-    }
 }
 
 @media (min-width: 750px) {
@@ -569,10 +564,6 @@ pre {
 
 .projects-list li:last-child {
     margin-bottom: 0
-}
-
-.projects-list a {
-    display: block
 }
 
 .projects-list a:hover .img-wrapper:before {
@@ -887,7 +878,7 @@ pre {
     left: 0;
     width: 100%;
     height: 40px;
-    background-color: #0078d7;
+    background: linear-gradient(to bottom, #0A246A, #A6CAF0);
     color: white;
     display: flex;
     align-items: center;
@@ -947,7 +938,6 @@ pre {
 
 .taskbar-list li {
     background-color: #005a9e;
-    padding: 5px 15px;
     border-radius: 3px;
     cursor: pointer;
     transition: background 0.2s
@@ -958,8 +948,6 @@ pre {
 }
 
 .taskbar-clock {
-    background-color: #005a9e;
-    padding: 5px 10px;
     border-radius: 3px;
     min-width: 60px;
     text-align: center;
@@ -1298,4 +1286,54 @@ pre {
 
 .taskbar-item:hover {
     background: linear-gradient(to bottom, #4A7AB6, #0C478A)
+}
+/* Disable transitions during drag for instant feedback */
+.window.dragging {
+    transition: none !important
+}
+
+/* Updated Start Menu Styling (Windows XP style) */
+.start-menu {
+    position: fixed;
+    bottom: 40px;
+    left: 10px;
+    width: 250px;
+    background-color: #ECE9D8;
+    color: black;
+    border: 2px solid #0A246A;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 1001;
+}
+
+.start-menu ul {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+}
+
+.start-menu li {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.start-menu li:hover {
+    background-color: #316AC5;
+    color: white;
+}
+
+.start-menu li a {
+    color: inherit;
+    text-decoration: none;
+    flex: 1;
+}
+
+.taskbar {
+    box-sizing: border-box;
+    border-top: 1px solid #a0b4c7
 }
