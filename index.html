@@ -40,17 +40,34 @@
 <body>
 	<main class="content">
 		<div class="container-home">
+			<!-- Desktop Icons -->
+			<div class="desktop-icons">
+				<div class="desktop-icon" onclick="windowManager.openWindow('microsoft')">
+					<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect fill='%234CAF50' width='48' height='48' rx='4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='white'%3EM%3C/text%3E%3C/svg%3E" alt="Microsoft">
+					<span>Microsoft</span>
+				</div>
+				<div class="desktop-icon" onclick="windowManager.openWindow('stripe')">
+					<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect fill='%236772E5' width='48' height='48' rx='4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='white'%3ES%3C/text%3E%3C/svg%3E" alt="Stripe">
+					<span>Stripe</span>
+				</div>
+				<div class="desktop-icon" onclick="windowManager.openWindow('misc')">
+					<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect fill='%23FF9800' width='48' height='48' rx='4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='white'%3E*%3C/text%3E%3C/svg%3E" alt="Misc">
+					<span>Misc</span>
+				</div>
+			</div>
+
 			<section class="projects">
 				<ul class="projects-list">
 
-					<div class="window project-program" style="margin: 32px" id="microsoft">
+					<div class="window project-program" id="microsoft">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Microsoft
 							</div>
 							<div class="title-bar-controls">
-								<button class="minimize-dialog" aria-label="Minimize"></button>
-								<button class="maximize-dialog" aria-label="Maximize"></button>
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button aria-label="Close"></button>
 							</div>
 						</div>
 						<div class="window-body">
@@ -72,14 +89,15 @@
 						</div>
 					</div>
 
-					<div class="window project-program" style="margin: 32px" id="stripe">
+					<div class="window project-program" id="stripe">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Stripe
 							</div>
 							<div class="title-bar-controls">
-								<button class="minimize-dialog" aria-label="Minimize"></button>
-								<button class="maximize-dialog" aria-label="Maximize"></button>
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button aria-label="Close"></button>
 							</div>
 						</div>
 						<div class="window-body">
@@ -89,14 +107,15 @@
 						</div>
 					</div>
 
-					<div class="window project-program" style="margin: 32px" id="misc">
+					<div class="window project-program" id="misc">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Misc
 							</div>
 							<div class="title-bar-controls">
-								<button class="minimize-dialog" aria-label="Minimize"></button>
-								<button class="maximize-dialog" aria-label="Maximize"></button>
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button aria-label="Close"></button>
 							</div>
 						</div>
 						<div class="window-body">
@@ -127,27 +146,28 @@
 			<div class="start-button" onclick="toggleStartMenu()">Start</div>
 			<ul class="taskbar-list">
 				<li>
-					<div class="taskbar-item" onclick="openAgency('microsoft')">
+					<div class="taskbar-item" data-window-id="microsoft" onclick="windowManager.toggleWindow('microsoft')">
 						Microsoft
 					</div>
 				</li>
 				<li>
-					<div class="taskbar-item" onclick="openAgency('stripe')">
+					<div class="taskbar-item" data-window-id="stripe" onclick="windowManager.toggleWindow('stripe')">
 						Stripe
 					</div>
 				</li>
 				<li>
-					<div class="taskbar-item" onclick="openAgency('misc')">
+					<div class="taskbar-item" data-window-id="misc" onclick="windowManager.toggleWindow('misc')">
 						Misc
 					</div>
 				</li>
 			</ul>
-			<div class="taskbar-clock">Now</div>
+			<div class="taskbar-clock" id="taskbar-clock">Now</div>
 		</section>
 	</div>
 </footer>
 		</div>
 	</main>
+	<script src="/assets/scripts/window-manager.js"></script>
 	<script src="/assets/scripts/home.js"></script>
 </body>
 
