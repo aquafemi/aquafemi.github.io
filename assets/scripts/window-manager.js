@@ -37,8 +37,6 @@ class WindowManager {
 			}
 		});
 
-		console.log('WindowManager initialized with', Object.keys(this.windows).length, 'windows');
-
 		// Update taskbar to hide items for closed windows
 		this.updateTaskbar();
 

@@ -10,15 +10,6 @@ body {
     margin: 0
 }
 
-article,
-aside,
-footer,
-header,
-nav,
-section {
-    display: block
-}
-
 h1 {
     font-size: 2em;
     margin: 0.67em 0
@@ -232,10 +223,6 @@ canvas {
 }
 
 template {
-    display: none
-}
-
-[hidden] {
     display: none
 }
 
