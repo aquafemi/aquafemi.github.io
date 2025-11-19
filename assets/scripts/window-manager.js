@@ -10,6 +10,14 @@ class WindowManager {
 		this.currentDragWindow = null;
 		this.dragOffset = { x: 0, y: 0 };
 
+		// Resizing state
+		this.isResizing = false;
+		this.currentResizeWindow = null;
+		this.resizeDirection = null;
+		this.resizeStartPos = { x: 0, y: 0 };
+		this.resizeStartSize = { width: 0, height: 0 };
+		this.resizeStartWindowPos = { x: 0, y: 0 };
+
 		// Bind methods to maintain context
 		this.handleMouseMove = this.handleMouseMove.bind(this);
 		this.handleMouseUp = this.handleMouseUp.bind(this);
@@ -82,8 +90,30 @@ class WindowManager {
 		windowElement.style.top = initialY + 'px';
 		windowElement.style.zIndex = this.windows[windowId].zIndex;
 
+		// Add resize handles
+		this.addResizeHandles(windowElement);
+
 		// Attach event listeners
 		this.attachWindowListeners(windowId);
+	}
+
+	/**
+	 * Add resize handles to window
+	 */
+	addResizeHandles(windowElement) {
+		const directions = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw'];
+
+		directions.forEach(direction => {
+			const handle = document.createElement('div');
+			handle.className = `resize-handle resize-${direction}`;
+			handle.dataset.direction = direction;
+			windowElement.appendChild(handle);
+
+			handle.addEventListener('mousedown', (e) => {
+				e.stopPropagation();
+				this.startResize(windowElement.id, direction, e);
+			});
+		});
 	}
 
 	/**
@@ -188,11 +218,20 @@ class WindowManager {
 	}
 
 	/**
-	 * Handle mouse move during drag
+	 * Handle mouse move during drag or resize
 	 */
 	handleMouseMove(event) {
-		if (!this.isDragging || !this.currentDragWindow) return;
+		if (this.isDragging && this.currentDragWindow) {
+			this.handleDragMove(event);
+		} else if (this.isResizing && this.currentResizeWindow) {
+			this.handleResizeMove(event);
+		}
+	}
 
+	/**
+	 * Handle mouse move during drag
+	 */
+	handleDragMove(event) {
 		const windowData = this.windows[this.currentDragWindow];
 
 		// Calculate new position
@@ -220,7 +259,54 @@ class WindowManager {
 	}
 
 	/**
-	 * Handle mouse up - stop dragging
+	 * Handle mouse move during resize
+	 */
+	handleResizeMove(event) {
+		const windowData = this.windows[this.currentResizeWindow];
+		const direction = this.resizeDirection;
+
+		const deltaX = event.clientX - this.resizeStartPos.x;
+		const deltaY = event.clientY - this.resizeStartPos.y;
+
+		let newWidth = this.resizeStartSize.width;
+		let newHeight = this.resizeStartSize.height;
+		let newX = this.resizeStartWindowPos.x;
+		let newY = this.resizeStartWindowPos.y;
+
+		const minWidth = 200;
+		const minHeight = 150;
+
+		// Handle horizontal resizing
+		if (direction.includes('e')) {
+			newWidth = Math.max(minWidth, this.resizeStartSize.width + deltaX);
+		} else if (direction.includes('w')) {
+			const potentialWidth = this.resizeStartSize.width - deltaX;
+			if (potentialWidth >= minWidth) {
+				newWidth = potentialWidth;
+				newX = this.resizeStartWindowPos.x + deltaX;
+			}
+		}
+
+		// Handle vertical resizing
+		if (direction.includes('s')) {
+			newHeight = Math.max(minHeight, this.resizeStartSize.height + deltaY);
+		} else if (direction.includes('n')) {
+			const potentialHeight = this.resizeStartSize.height - deltaY;
+			if (potentialHeight >= minHeight) {
+				newHeight = potentialHeight;
+				newY = this.resizeStartWindowPos.y + deltaY;
+			}
+		}
+
+		// Apply new size and position
+		windowData.element.style.width = newWidth + 'px';
+		windowData.element.style.height = newHeight + 'px';
+		windowData.element.style.left = newX + 'px';
+		windowData.element.style.top = newY + 'px';
+	}
+
+	/**
+	 * Handle mouse up - stop dragging and resizing
 	 */
 	handleMouseUp(event) {
 		if (this.isDragging) {
@@ -236,6 +322,39 @@ class WindowManager {
 			document.removeEventListener('mousemove', this.handleMouseMove);
 			document.removeEventListener('mouseup', this.handleMouseUp);
 		}
+
+		if (this.isResizing) {
+			this.isResizing = false;
+			this.currentResizeWindow = null;
+			this.resizeDirection = null;
+
+			// Remove global listeners
+			document.removeEventListener('mousemove', this.handleMouseMove);
+			document.removeEventListener('mouseup', this.handleMouseUp);
+		}
+	}
+
+	/**
+	 * Start resizing a window
+	 */
+	startResize(windowId, direction, event) {
+		const windowData = this.windows[windowId];
+		if (!windowData) return;
+
+		this.isResizing = true;
+		this.currentResizeWindow = windowId;
+		this.resizeDirection = direction;
+		this.resizeStartPos = { x: event.clientX, y: event.clientY };
+
+		const rect = windowData.element.getBoundingClientRect();
+		this.resizeStartSize = { width: rect.width, height: rect.height };
+		this.resizeStartWindowPos = { x: rect.left, y: rect.top };
+
+		// Add global mouse listeners
+		document.addEventListener('mousemove', this.handleMouseMove);
+		document.addEventListener('mouseup', this.handleMouseUp);
+
+		event.preventDefault();
 	}
 
 	/**
