@@ -629,214 +629,6 @@ pre {
     margin: 1rem 0 .5rem
 }
 
-.project {
-    left: 0;
-    position: relative;
-    top: 0
-}
-
-@media (min-width: 750px) {
-    .project {
-        margin-top: -21rem
-    }
-
-    .project .article-wrapper {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0
-    }
-}
-
-.project .container {
-    max-width: 100%
-}
-
-.project article {
-    margin-bottom: 3rem
-}
-
-@media (min-width: 750px) {
-    .project article {
-        float: right;
-        right: 0;
-        width: 40%;
-        position: absolute;
-        right: 5%
-    }
-}
-
-.project aside {
-    margin-left: -3rem;
-    margin-right: -3rem
-}
-
-@media (min-width: 550px) {
-    .project aside:after {
-        content: "";
-        clear: both;
-        display: block
-    }
-}
-
-@media (min-width: 750px) {
-    .project aside {
-        float: left;
-        width: 55%
-    }
-}
-
-.project .project-meta {
-    margin: 3rem 0 0
-}
-
-@media (min-width: 750px) {
-    .project .project-meta {
-        margin: 5rem 0 0;
-        max-width: 70%
-    }
-}
-
-.project .h2,
-.project .projects-list .img-wrapper:before,
-.projects-list .project .img-wrapper:before {
-    margin: 3rem 0 .5rem
-}
-
-.project .h2:first-of-type,
-.project .projects-list .img-wrapper:first-of-type:before,
-.projects-list .project .img-wrapper:first-of-type:before {
-    margin-top: 0
-}
-
-.project h1 a {
-    text-decoration: underline
-}
-
-.project li {
-    margin-bottom: 0rem
-}
-
-.project li:last-child {
-    margin-bottom: 0
-}
-
-.project .mermaid {
-    display: flex !important;
-    justify-content: center
-}
-
-.project img {
-    width: 100%
-}
-
-.project-navigation {
-    background: #000;
-    padding: 5rem 0
-}
-
-.project-navigation a {
-    color: #fff;
-    display: inline-block
-}
-
-.project-navigation a:hover h2:after {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1)
-}
-
-.project-navigation a:hover.prev span {
-    left: 7px
-}
-
-.project-navigation a:hover span:after {
-    left: 7px
-}
-
-.project-navigation a:hover span:before {
-    left: -7px
-}
-
-.project-navigation a:nth-of-type(1),
-.project-navigation a:nth-of-type(2) {
-    display: table;
-    margin: 0 auto;
-    text-align: center
-}
-
-@media (min-width: 400px) {
-
-    .project-navigation a:nth-of-type(1),
-    .project-navigation a:nth-of-type(2) {
-        display: inline-block;
-        margin: 0;
-        text-align: left
-    }
-}
-
-@media (min-width: 400px) {
-    .project-navigation a:nth-of-type(1) {
-        float: left
-    }
-}
-
-.project-navigation a:nth-of-type(2) {
-    margin-top: 3rem
-}
-
-@media (min-width: 400px) {
-    .project-navigation a:nth-of-type(2) {
-        float: right;
-        margin-top: 0
-    }
-}
-
-.project-navigation a.next span:after {
-    content: "\02192"
-}
-
-.project-navigation a.prev span {
-    position: relative;
-    left: 0;
-    -webkit-transition: all .3s ease-in-out 0s;
-    transition: all .3s ease-in-out 0s
-}
-
-.project-navigation a.prev span:before {
-    content: "\02190"
-}
-
-.project-navigation span:after,
-.project-navigation span:before {
-    position: relative;
-    left: 0;
-    -webkit-transition: all .3s ease-in-out 0s;
-    transition: all .3s ease-in-out 0s
-}
-
-.project-navigation h2 {
-    display: inline-block;
-    font-size: 1.8rem;
-    position: relative
-}
-
-.project-navigation h2:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    bottom: -4px;
-    left: 0;
-    background-color: #fff;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all .3s ease-in-out 0s;
-    transition: all .3s ease-in-out 0s
-}
-
 /* ==========================================================================
    Footer & Miscellaneous
    ========================================================================== */
@@ -863,28 +655,6 @@ pre {
 .contact,
 .follow {
     margin-bottom: 3rem
-}
-
-.mermaidTooltip {
-    position: absolute;
-    text-align: center;
-    max-width: 200px;
-    padding: 2px;
-    font-family: 'trebuchet ms', verdana, arial;
-    font-size: 12px;
-    background: #ffffde;
-    border: 1px solid #aaaa33;
-    border-radius: 2px;
-    pointer-events: none;
-    z-index: 100
-}
-
-.mermaidClick {
-    background-color: turquoise
-}
-
-.project-program {
-    display: none
 }
 
 /* ============================================================================
@@ -1361,6 +1131,24 @@ pre {
     margin-right: 10px;
     display: inline-block;
     vertical-align: middle;
+}
+
+/* ==========================================================================
+   Contact Form - Email Status & Progress Bar
+   ========================================================================== */
+
+.email-status {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.email-status progress {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 10px;
 }
 
 .window-body {

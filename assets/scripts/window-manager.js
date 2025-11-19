@@ -51,7 +51,8 @@ class WindowManager {
 			'stripe': { x: 150, y: 150 },
 			'discord': { x: 200, y: 200 },
 			'aboutme': { x: 250, y: 100 },
-			'mail': { x: 300, y: 150 }
+			'mail': { x: 300, y: 150 },
+			'mail-sent': { x: 300, y: 150 }
 		};
 
 		// Set initial position if not already positioned
