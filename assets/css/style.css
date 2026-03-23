@@ -621,12 +621,16 @@ pre {
    ========================================================================== */
 
 .footer {
-    background: #fafafa;
     bottom: 0;
     left: 0;
     position: fixed;
     right: 0;
-    z-index: 1000
+    z-index: 9999;
+}
+
+.footer .container {
+    padding: 0;
+    max-width: none;
 }
 
 @media (min-width: 750px) {
@@ -657,64 +661,94 @@ pre {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 40px;
-    background: linear-gradient(to bottom, #0A246A, #A6CAF0);
+    height: 30px;
+    background: linear-gradient(to bottom,
+        #245EDC 0%,
+        #3B7FE8 8%,
+        #2060D8 15%,
+        #1A52C8 25%,
+        #1A52C8 75%,
+        #1650BE 85%,
+        #0E3A9E 92%,
+        #0A2E8C 100%);
     color: white;
     display: flex;
     align-items: center;
-    padding: 0 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    padding-right: 0;
+    box-shadow: 0 -1px 0 #0a246a;
     box-sizing: border-box;
-    border-top: 1px solid #a0b4c7
+    border-top: 2px solid #5184D8;
+    z-index: 9999;
 }
 
 .start-button {
-    background: linear-gradient(to bottom, #5cb85c 0%, #3a7d3a 40%, #2d6b2d 60%, #4a9c4a 100%);
+    background: linear-gradient(to bottom,
+        #5DB144 0%,
+        #4CA033 20%,
+        #3A8822 40%,
+        #3A8822 60%,
+        #4CA033 80%,
+        #5DB144 100%);
     color: white;
-    padding: 3px 12px 3px 6px;
+    padding: 0 10px 0 4px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
     font-style: italic;
     letter-spacing: 0.5px;
-    border-radius: 0 12px 12px 0;
-    border: 1px solid #1a4d1a;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 3px rgba(0,0,0,0.4);
+    border-radius: 0 8px 8px 0;
+    border: 1px solid #1e5c0e;
+    border-left: none;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.4),
+        inset 1px 0 0 rgba(255,255,255,0.2),
+        1px 0 4px rgba(0,0,0,0.5),
+        0 2px 4px rgba(0,0,0,0.3);
     cursor: pointer;
     transition: background 0.1s;
     display: flex;
     align-items: center;
-    gap: 5px;
-    height: 32px;
+    gap: 4px;
+    height: 36px;
+    margin-top: -3px;
     white-space: nowrap;
+    position: relative;
+    z-index: 1;
 }
 
 .start-button:hover {
-    background: linear-gradient(to bottom, #72cc72 0%, #4a9a4a 40%, #3a7a3a 60%, #5ab05a 100%);
+    background: linear-gradient(to bottom,
+        #72CC58 0%,
+        #5AB642 20%,
+        #48A030 40%,
+        #48A030 60%,
+        #5AB642 80%,
+        #72CC58 100%);
 }
 
 .start-button:active {
-    background: linear-gradient(to bottom, #2d6b2d 0%, #3a7d3a 100%);
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    background: linear-gradient(to bottom, #2d8020 0%, #3a9a2a 100%);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .start-logo {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
 }
 
 .taskbar-list {
     list-style: none;
     display: flex;
-    gap: 4px;
+    gap: 2px;
     padding: 2px 4px;
-    margin: 0 0 0 6px;
+    margin: 0 0 0 2px;
     flex: 1;
     min-width: 0;
     overflow-x: auto;
     overflow-y: hidden;
-    scrollbar-width: none; /* hide scrollbar visually but keep scroll behaviour */
+    scrollbar-width: none;
     -ms-overflow-style: none;
 }
 
@@ -723,15 +757,9 @@ pre {
 }
 
 .taskbar-list li {
-    background-color: #005a9e;
     border-radius: 3px;
     cursor: pointer;
-    transition: background 0.2s;
-    flex-shrink: 0; /* don't shrink — scroll instead */
-}
-
-.taskbar-list li:hover {
-    background-color: #004580
+    flex-shrink: 0;
 }
 
 /* .taskbar-clock styles moved to System Tray section below */
@@ -753,7 +781,7 @@ pre {
         left: 0 !important;
         top: 0 !important;
         width: 100% !important;
-        height: calc(100dvh - 40px) !important;
+        height: calc(100dvh - 30px) !important;
     }
 
     /* Desktop icons smaller */
@@ -1100,13 +1128,25 @@ pre {
     display: flex;
     align-items: center;
     width: 150px;
-    height: 30px;
-    background: linear-gradient(to bottom, #5A8AC6, #1C57AA);
+    height: 24px;
+    background: linear-gradient(to bottom,
+        #3A6EC0 0%,
+        #2A5AAE 40%,
+        #1E4EA0 60%,
+        #2A5AAE 100%);
+    border: 1px solid rgba(0,0,0,0.4);
+    border-top-color: rgba(255,255,255,0.25);
+    border-left-color: rgba(255,255,255,0.15);
     border-radius: 3px;
     cursor: pointer;
     padding: 0 6px;
-    font-size: 13px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-size: 11px;
+    font-family: Tahoma, sans-serif;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        0 1px 2px rgba(0,0,0,0.4);
     overflow: hidden;
 }
 
@@ -1118,17 +1158,23 @@ pre {
 }
 
 .taskbar-item.active {
-    background: linear-gradient(to bottom, #0A246A, #2C67BA);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.3)
+    background: linear-gradient(to bottom,
+        #1A3A80 0%,
+        #2050A8 40%,
+        #1A4090 100%);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(0,0,0,0.3);
+    border-color: rgba(0,0,0,0.6);
 }
 
 .taskbar-item.minimized {
-    opacity: 0.7
+    opacity: 0.75;
 }
 
 .taskbar-item:hover {
-    background: linear-gradient(to bottom, #4A7AB6, #0C478A)
+    background: linear-gradient(to bottom,
+        #4A80D0 0%,
+        #3A70C0 40%,
+        #2E62B0 100%);
 }
 
 .taskbar-icon {
@@ -1149,66 +1195,74 @@ pre {
 
 .start-menu {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     left: 0;
-    width: 380px;
+    width: 340px;
     background-color: #ECE9D8;
     color: black;
-    border: 2px solid #0A246A;
+    border: 1px solid #0A246A;
     border-bottom: none;
-    box-shadow: 3px -3px 12px rgba(0, 0, 0, 0.6);
+    border-radius: 8px 8px 0 0;
+    box-shadow: 4px -4px 16px rgba(0, 0, 0, 0.7);
     display: none;
-    z-index: 1001;
+    z-index: 10001;
     font-family: Tahoma, sans-serif;
     font-size: 12px;
+    overflow: hidden;
 }
 
 .start-menu-header {
-    background: linear-gradient(to right, #1f5fbe, #3a8fd4);
+    background: linear-gradient(to bottom, #2E6FD4 0%, #1A52BE 40%, #1448A8 100%);
     color: white;
-    height: 54px;
+    height: 60px;
     display: flex;
     align-items: center;
-    padding: 0 12px;
+    padding: 8px 10px;
     gap: 10px;
-    font-weight: bold;
+}
+
+.start-menu-username {
     font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .start-menu-avatar {
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.2);
-    border: 2px solid rgba(255,255,255,0.5);
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.6);
     border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 26px;
     flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
 }
 
 .start-menu-body {
     display: flex;
-    border-top: 1px solid #7da0c4;
+    border-top: 2px solid #0A246A;
+    min-height: 200px;
 }
 
 .start-menu-left {
     flex: 1;
     list-style: none;
-    padding: 4px 0;
+    padding: 6px 0 4px;
     margin: 0;
     background: white;
-    border-right: 1px solid #b5c9e0;
+    border-right: 1px solid #9DB5C8;
     min-width: 0;
 }
 
 .start-menu-right {
-    width: 150px;
+    width: 148px;
     list-style: none;
-    padding: 4px 0;
+    padding: 6px 0 4px;
     margin: 0;
-    background: #ECE9D8;
+    background: #D8E4F0;
     flex-shrink: 0;
 }
 
@@ -1216,34 +1270,66 @@ pre {
 .start-menu-right li {
     display: flex;
     align-items: center;
-    padding: 5px 8px;
+    padding: 4px 8px;
     cursor: pointer;
-    border-radius: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 11px;
+    line-height: 1.4;
 }
 
 .start-menu-left li:hover {
-    background-color: #316AC5;
+    background: linear-gradient(to bottom, #3A7ACC, #1D5BAA);
     color: white;
+}
+
+.start-menu-left li:hover .menu-icon-label-sub {
+    color: rgba(255,255,255,0.85);
+}
+
+.start-menu-left .menu-item-main {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.start-menu-left .menu-item-sub {
+    font-size: 10px;
+    color: #666;
+    display: block;
+}
+
+.start-menu-left hr.menu-separator {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 4px 8px;
+    cursor: default;
+    padding: 0;
+    display: block;
+    width: auto;
+}
+
+.start-menu-left hr.menu-separator:hover {
+    background: none;
 }
 
 .start-menu-right li {
     font-size: 11px;
-    color: #1a1a5e;
+    color: #000060;
     font-weight: bold;
 }
 
 .start-menu-right li:hover {
-    background-color: #316AC5;
+    background: linear-gradient(to bottom, #3A7ACC, #1D5BAA);
     color: white;
 }
 
 .start-menu-right-icon {
     margin-right: 8px;
-    font-size: 16px;
+    font-size: 18px;
     flex-shrink: 0;
+    width: 24px;
+    text-align: center;
 }
 
 .start-menu li a {
@@ -1253,39 +1339,68 @@ pre {
 }
 
 .start-menu .menu-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
     display: inline-block;
     vertical-align: middle;
     flex-shrink: 0;
+    object-fit: contain;
+}
+
+.start-menu-all-programs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px 4px 8px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    color: #000;
+    border-top: 1px solid #ccc;
+    margin-top: 4px;
+}
+
+.start-menu-all-programs:hover {
+    background: linear-gradient(to bottom, #3A7ACC, #1D5BAA);
+    color: white;
 }
 
 .start-menu-footer {
-    background: linear-gradient(to bottom, #c4d5e8, #a8bfd8);
-    border-top: 1px solid #7da0c4;
-    padding: 4px 8px;
+    background: linear-gradient(to bottom, #1650C0, #0E3A96);
+    border-top: 1px solid #4A7AE0;
+    padding: 5px 8px;
     display: flex;
     justify-content: flex-end;
     gap: 6px;
+    align-items: center;
 }
 
 .start-menu-footer-btn {
-    background: linear-gradient(to bottom, #f0f4fc, #d0dcf0);
-    border: 1px solid #7090c0;
+    background: linear-gradient(to bottom, #4A88DC 0%, #2060BC 40%, #1850A8 60%, #2060BC 100%);
+    border: 1px solid #0A2A7A;
+    border-top-color: rgba(255,255,255,0.3);
     border-radius: 3px;
-    padding: 3px 12px;
+    padding: 3px 10px;
     font-size: 11px;
     font-family: Tahoma, sans-serif;
     cursor: pointer;
-    color: #000;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.4);
 }
 
 .start-menu-footer-btn:hover {
-    background: linear-gradient(to bottom, #d8e4f8, #b8ccec);
+    background: linear-gradient(to bottom, #5A98EC 0%, #3070CC 40%, #2060BC 100%);
+}
+
+.start-menu-footer-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -1406,18 +1521,54 @@ pre {
     flex: 1;
     overflow-y: auto;
     max-height: none;
-    min-height: 0; /* required for flex children to shrink below content size */
+    min-height: 0;
     -webkit-overflow-scrolling: touch;
 }
 
+/* window-body-pinned: buttons stay pinned at bottom, content scrolls above */
+.window .window-body.window-body-pinned {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.window .window-body.window-body-pinned .window-body-content {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.window .window-body.window-body-pinned .window-body-actions {
+    flex-shrink: 0;
+    justify-content: center;
+    padding: 6px 0 4px;
+    margin: 0;
+    border-top: 1px solid #d0d0d0;
+}
+
 /* ==========================================================================
-   XP Title Bar Font Override
+   XP Title Bar Font Override & Icon
    ========================================================================== */
 
 .title-bar,
 .title-bar-text {
     font-family: Tahoma, 'MS Sans Serif', sans-serif !important;
     font-size: 12px !important;
+}
+
+.title-bar-text {
+    display: flex !important;
+    align-items: center;
+    gap: 4px;
+}
+
+.title-bar-icon {
+    width: 16px !important;
+    height: 16px !important;
+    flex-shrink: 0;
+    display: inline-block;
+    margin-bottom: 0;
 }
 
 /* ==========================================================================
@@ -1437,6 +1588,19 @@ pre {
 
 .window.opening {
     animation: windowOpen 0.12s ease-out forwards;
+}
+
+/* ==========================================================================
+   Desktop Rubber-band Selection Box
+   ========================================================================== */
+
+#desktop-selection-box {
+    position: fixed;
+    display: none;
+    border: 1px solid #316AC5;
+    background: rgba(49, 106, 197, 0.15);
+    pointer-events: none;
+    z-index: 9000;
 }
 
 /* ==========================================================================
@@ -1461,22 +1625,25 @@ pre {
 .system-tray {
     display: flex;
     align-items: center;
-    gap: 6px;
-    background: linear-gradient(to bottom, #0e3b8e, #1e5fb8);
-    border-left: 1px solid rgba(255,255,255,0.2);
-    padding: 0 8px;
+    gap: 4px;
+    background: linear-gradient(to bottom,
+        #1240A8 0%,
+        #1A52C0 20%,
+        #1650BC 80%,
+        #0E3898 100%);
+    border-left: 1px solid #4A80D0;
+    padding: 0 6px 0 8px;
     height: 100%;
-    box-shadow: inset 1px 0 0 rgba(0,0,0,0.3);
+    box-shadow: inset 1px 0 2px rgba(0,0,0,0.4);
     flex-shrink: 0;
-    margin-left: 4px;
 }
 
 .tray-icons {
     display: flex;
     align-items: center;
-    gap: 4px;
-    border-right: 1px solid rgba(255,255,255,0.2);
-    padding-right: 8px;
+    gap: 2px;
+    padding-right: 6px;
+    border-right: 1px solid rgba(255,255,255,0.15);
 }
 
 .tray-icon {
@@ -1488,10 +1655,12 @@ pre {
 
 .taskbar-clock {
     border-radius: 0;
-    min-width: 55px;
+    min-width: 50px;
     text-align: center;
-    font-family: Tahoma, monospace;
-    font-size: 12px;
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
     color: white;
-    margin-left: 0;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    padding-left: 4px;
 }

@@ -205,20 +205,94 @@ function initDesktopIconSelection() {
 		icon.style.pointerEvents = 'auto';
 	});
 
-	// Selection on click (desktop)
-	icons.forEach(icon => {
-		icon.addEventListener('click', () => {
-			icons.forEach(i => i.classList.remove('selected'));
-			icon.classList.add('selected');
-		});
-	});
+	// Desktop only: single click = select, double click = open, Enter = open selected
+	if (!('ontouchstart' in window)) {
+		// --- Rubber-band (lasso) selection ---
+		const selectionBox = document.createElement('div');
+		selectionBox.id = 'desktop-selection-box';
+		document.body.appendChild(selectionBox);
 
-	// Deselect when clicking the desktop background
-	document.addEventListener('click', (e) => {
-		if (!e.target.closest('.desktop-icon') && !e.target.closest('.window')) {
-			icons.forEach(i => i.classList.remove('selected'));
-		}
-	});
+		let dragSelecting = false;
+		let dragStart = { x: 0, y: 0 };
+
+		document.addEventListener('mousedown', (e) => {
+			// Only start drag-select on the desktop background (not on icons/windows/taskbar)
+			if (e.button !== 0) return;
+			if (e.target.closest('.desktop-icon') || e.target.closest('.window') || e.target.closest('.footer')) return;
+
+			dragSelecting = true;
+			dragStart = { x: e.clientX, y: e.clientY };
+
+			selectionBox.style.left   = e.clientX + 'px';
+			selectionBox.style.top    = e.clientY + 'px';
+			selectionBox.style.width  = '0px';
+			selectionBox.style.height = '0px';
+			selectionBox.style.display = 'block';
+
+			if (!e.shiftKey) icons.forEach(i => i.classList.remove('selected'));
+		});
+
+		document.addEventListener('mousemove', (e) => {
+			if (!dragSelecting) return;
+
+			const x = Math.min(e.clientX, dragStart.x);
+			const y = Math.min(e.clientY, dragStart.y);
+			const w = Math.abs(e.clientX - dragStart.x);
+			const h = Math.abs(e.clientY - dragStart.y);
+
+			selectionBox.style.left   = x + 'px';
+			selectionBox.style.top    = y + 'px';
+			selectionBox.style.width  = w + 'px';
+			selectionBox.style.height = h + 'px';
+
+			// Hit-test each icon against the selection rect
+			const selRect = { x, y, right: x + w, bottom: y + h };
+			icons.forEach(icon => {
+				const r = icon.getBoundingClientRect();
+				const overlaps = r.left < selRect.right && r.right > selRect.x &&
+				                 r.top  < selRect.bottom && r.bottom > selRect.y;
+				icon.classList.toggle('selected', overlaps);
+			});
+		});
+
+		document.addEventListener('mouseup', () => {
+			if (!dragSelecting) return;
+			dragSelecting = false;
+			selectionBox.style.display = 'none';
+		});
+
+		// --- Icon click / double-click ---
+		icons.forEach(icon => {
+			// Single click: select (shift = add to selection)
+			icon.addEventListener('click', (e) => {
+				if (!e.shiftKey) icons.forEach(i => i.classList.remove('selected'));
+				icon.classList.add('selected');
+			});
+
+			// Double click: open
+			icon.addEventListener('dblclick', () => {
+				const windowId = icon.dataset.window;
+				if (windowId) windowManager.openWindow(windowId);
+			});
+		});
+
+		// Enter key: open all selected icons
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter') {
+				container.querySelectorAll('.desktop-icon.selected').forEach(icon => {
+					const windowId = icon.dataset.window;
+					if (windowId) windowManager.openWindow(windowId);
+				});
+			}
+		});
+
+		// Deselect when clicking desktop background
+		document.addEventListener('click', (e) => {
+			if (!e.target.closest('.desktop-icon') && !e.target.closest('.window')) {
+				icons.forEach(i => i.classList.remove('selected'));
+			}
+		});
+	}
 
 	// Touch dragging (mobile only)
 	icons.forEach(icon => {
@@ -248,7 +322,7 @@ function initDesktopIconSelection() {
 			let x = t.clientX - touchOffset.x - parent.left;
 			let y = t.clientY - touchOffset.y - parent.top;
 			x = Math.max(0, Math.min(x, window.innerWidth - icon.offsetWidth));
-			y = Math.max(0, Math.min(y, window.innerHeight - icon.offsetHeight - 44));
+			y = Math.max(0, Math.min(y, window.innerHeight - icon.offsetHeight - 30));
 			icon.style.left = x + 'px';
 			icon.style.top = y + 'px';
 			e.preventDefault();
@@ -256,6 +330,11 @@ function initDesktopIconSelection() {
 
 		icon.addEventListener('touchend', () => {
 			icon.style.zIndex = '';
+			if (!touchDragging) {
+				// Single tap on mobile = open window
+				const windowId = icon.dataset.window;
+				if (windowId) windowManager.openWindow(windowId);
+			}
 			touchDragging = false;
 		});
 	});

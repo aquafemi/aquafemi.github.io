@@ -333,7 +333,7 @@ class WindowManager {
 		// Get viewport dimensions
 		const viewportWidth = window.innerWidth;
 		const viewportHeight = window.innerHeight;
-		const taskbarHeight = 40; // Height of taskbar at bottom
+		const taskbarHeight = 30; // Height of taskbar at bottom
 
 		// Boundary checking - keep window in viewport
 		newX = Math.max(0, Math.min(newX, viewportWidth - windowWidth));

@@ -20,8 +20,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="robots" content="index,follow">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/assets/images/icons/windows-xp.png" type="image/png">
+	<link rel="icon" href="/assets/images/icons/windows-xp.png" type="image/png">
 	<!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"> -->
 	<link rel="manifest" href="/manifest.json">
@@ -49,27 +49,27 @@
 		<div class="container-home">
 			<!-- Desktop Icons -->
 			<div class="desktop-icons">
-				<div class="desktop-icon" onclick="windowManager.openWindow('aboutme')">
-					<img src="/favicon.ico" alt="About Me">
+				<div class="desktop-icon" data-window="aboutme">
+					<img src="/assets/images/femi_xyz_logo.png" alt="About Me">
 					<span>About Me</span>
 				</div>
-				<div class="desktop-icon" onclick="windowManager.openWindow('cmu')">
+				<div class="desktop-icon" data-window="cmu">
 					<img src="/assets/images/icons/cmu.ico" alt="Carnegie Mellon">
 					<span>Carnegie Mellon</span>
 				</div>
-				<div class="desktop-icon" onclick="windowManager.openWindow('microsoft')">
+				<div class="desktop-icon" data-window="microsoft">
 					<img src="/assets/images/icons/microsoft.ico" alt="Microsoft">
 					<span>Microsoft</span>
 				</div>
-				<div class="desktop-icon" onclick="windowManager.openWindow('stripe')">
+				<div class="desktop-icon" data-window="stripe">
 					<img src="/assets/images/icons/stripe.ico" alt="Stripe">
 					<span>Stripe</span>
 				</div>
-				<div class="desktop-icon" onclick="windowManager.openWindow('discord')">
+				<div class="desktop-icon" data-window="discord">
 					<img src="/assets/images/icons/discord.ico" alt="Discord">
 					<span>Discord</span>
 				</div>
-				<div class="desktop-icon" onclick="windowManager.openWindow('mail')">
+				<div class="desktop-icon" data-window="mail">
 					<img src="/assets/images/icons/mail.ico" alt="Mail">
 					<span>Mail</span>
 				</div>
@@ -80,7 +80,7 @@
 					<div class="window project-program" id="aboutme">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								About Me
+								<img src="/assets/images/femi_xyz_logo.png" class="title-bar-icon" alt=""> About Me
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Minimize"></button>
@@ -88,55 +88,56 @@
 								<button aria-label="Close"></button>
 							</div>
 						</div>
-						<div class="window-body">
-							<h3>Hey! I'm Femi, welcome to my space.</h3>
-							<p>Senior Software Engineer @ Discord</p>
-							<p>Carnegie Mellon '17 | Electrical and Computer Engineering</p>
-							<h4>I <a title="MixCloud" href="https://www.mixcloud.com/aquafemi" target="_blank">DJ</a>
-								🎧, <a title="Soundcloud" href="https://www.soundcloud.com/aquafemi"
-									target="_blank">produce</a> 🎶, nap often 😴, and build things like this website
-								🛠️</h4>
-							<menu role="tablist">
-								<button role="tab" aria-selected="true" aria-controls="mixes">Mixes</button>
-								<button role="tab" aria-controls="songs">Songs</button>
-							</menu>
-							<article role="tabpanel" id="mixes">
-								<p>Some of my mixes</p>
-								<fieldset>
-									<legend>Yesterdays's mood</legend>
-									<iframe width="100%" height="120"
-										src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Faquafemi%2Flittle-afrobeats-mix%2F"
-										frameborder="0"
-										allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
-								</fieldset>
-								<fieldset>
-									<legend>Today's mood</legend>
-									<iframe width="100%" height="120"
-										src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Faquafemi%2Fafrobeats-rb-and-other-things%2F"
-										frameborder="0"
-										allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
-								</fieldset>
-								<fieldset>
-									<legend>Tomorrow's mood</legend>
-									<iframe width="100%" height="120"
-										src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Faquafemi%2Ffemale-rap-mix%2F"
-										frameborder="0"
-										allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
-								</fieldset>
-							</article>
+						<div class="window-body window-body-pinned">
+							<div class="window-body-content">
+								<h3>Hey! I'm Femi, welcome to my space.</h3>
+								<p>Senior Software Engineer @ Discord</p>
+								<p>Carnegie Mellon '17 | Electrical and Computer Engineering</p>
+								<h4>I <a title="MixCloud" href="https://www.mixcloud.com/aquafemi" target="_blank">DJ</a>
+									🎧, <a title="Soundcloud" href="https://www.soundcloud.com/aquafemi"
+										target="_blank">produce</a> 🎶, nap often 😴, and build things like this website
+									🛠️</h4>
+								<menu role="tablist">
+									<button role="tab" aria-selected="true" aria-controls="mixes">Mixes</button>
+									<button role="tab" aria-controls="songs">Songs</button>
+								</menu>
+								<article role="tabpanel" id="mixes">
+									<p>Some of my mixes</p>
+									<fieldset>
+										<legend>Yesterdays's mood</legend>
+										<iframe width="100%" height="120"
+											src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Faquafemi%2Flittle-afrobeats-mix%2F"
+											frameborder="0"
+											allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
+									</fieldset>
+									<fieldset>
+										<legend>Today's mood</legend>
+										<iframe width="100%" height="120"
+											src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Faquafemi%2Fafrobeats-rb-and-other-things%2F"
+											frameborder="0"
+											allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
+									</fieldset>
+									<fieldset>
+										<legend>Tomorrow's mood</legend>
+										<iframe width="100%" height="120"
+											src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2Faquafemi%2Ffemale-rap-mix%2F"
+											frameborder="0"
+											allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;"></iframe>
+									</fieldset>
+								</article>
 
-							<article role="tabpanel" hidden id="songs">
-								<p>Some of my songs</p>
-								<fieldset>
-									<legend>what do</legend>
-									<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2125717017&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/femi_xyz" title="femi.xyz" target="_blank" style="color: #cccccc; text-decoration: none;">femi.xyz</a> · <a href="https://soundcloud.com/femi_xyz/falling" title="falling" target="_blank" style="color: #cccccc; text-decoration: none;">falling</a></div>								</fieldset>
-								<fieldset>
-									<legend>you think?</legend>
-									<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2123660913&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/femi_xyz" title="femi.xyz" target="_blank" style="color: #cccccc; text-decoration: none;">femi.xyz</a> · <a href="https://soundcloud.com/femi_xyz/innocent_wish" title="innocent_wish" target="_blank" style="color: #cccccc; text-decoration: none;">innocent_wish</a></div>
-								</fieldset>
-							</article>
-
-							<section class="field-row" style="justify-content: center">
+								<article role="tabpanel" hidden id="songs">
+									<p>Some of my songs</p>
+									<fieldset>
+										<legend>what do</legend>
+										<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2125717017&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/femi_xyz" title="femi.xyz" target="_blank" style="color: #cccccc; text-decoration: none;">femi.xyz</a> · <a href="https://soundcloud.com/femi_xyz/falling" title="falling" target="_blank" style="color: #cccccc; text-decoration: none;">falling</a></div>								</fieldset>
+									<fieldset>
+										<legend>you think?</legend>
+										<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2123660913&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/femi_xyz" title="femi.xyz" target="_blank" style="color: #cccccc; text-decoration: none;">femi.xyz</a> · <a href="https://soundcloud.com/femi_xyz/innocent_wish" title="innocent_wish" target="_blank" style="color: #cccccc; text-decoration: none;">innocent_wish</a></div>
+									</fieldset>
+								</article>
+							</div>
+							<section class="field-row window-body-actions">
 								<button>OK</button>
 								<button>Cancel</button>
 							</section>
@@ -151,7 +152,7 @@
 					<div class="window project-program" id="cmu">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								Carnegie Mellon
+								<img src="/assets/images/icons/cmu.ico" class="title-bar-icon" alt=""> Carnegie Mellon
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Minimize"></button>
@@ -159,12 +160,14 @@
 								<button aria-label="Close"></button>
 							</div>
 						</div>
-						<div class="window-body">
-							<p>I got my Bachelors in Electrical and Computer Engineering. I studied the full spectrum of
-								hardware and software</p>
-							<p> from analog circuits and signal processing to distributed systems and software
-								engineering. I used (and forgot) a bunch of tech</p>
-							<section class="field-row" style="justify-content: center">
+						<div class="window-body window-body-pinned">
+							<div class="window-body-content">
+								<p>I got my Bachelors in Electrical and Computer Engineering. I studied the full spectrum of
+									hardware and software</p>
+								<p> from analog circuits and signal processing to distributed systems and software
+									engineering. I used (and forgot) a bunch of tech</p>
+							</div>
+							<section class="field-row window-body-actions">
 								<button>OK</button>
 								<button>Cancel</button>
 							</section>
@@ -180,7 +183,7 @@
 					<div class="window project-program" id="microsoft">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								Microsoft
+								<img src="/assets/images/icons/microsoft.ico" class="title-bar-icon" alt=""> Microsoft
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Minimize"></button>
@@ -188,12 +191,14 @@
 								<button aria-label="Close"></button>
 							</div>
 						</div>
-						<div class="window-body">
-							<p>I worked on PowerBI (Business Intelligence) and AzureML (Machine Learning). I wrote a
-								tiny bit of frontend code in Typescript, </p>
-							<p> did tons of backend using C#, Python, and Go, and built setup services for AzureML
-								compute using Linux systemd</p>
-							<section class="field-row" style="justify-content: center">
+						<div class="window-body window-body-pinned">
+							<div class="window-body-content">
+								<p>I worked on PowerBI (Business Intelligence) and AzureML (Machine Learning). I wrote a
+									tiny bit of frontend code in Typescript, </p>
+								<p> did tons of backend using C#, Python, and Go, and built setup services for AzureML
+									compute using Linux systemd</p>
+							</div>
+							<section class="field-row window-body-actions">
 								<button>OK</button>
 								<button>Cancel</button>
 							</section>
@@ -209,7 +214,7 @@
 					<div class="window project-program" id="stripe">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								Stripe
+								<img src="/assets/images/icons/stripe.ico" class="title-bar-icon" alt=""> Stripe
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Minimize"></button>
@@ -217,10 +222,12 @@
 								<button aria-label="Close"></button>
 							</div>
 						</div>
-						<div class="window-body">
-							<p>I built compliance tooling for Money Movement (legal rules for moving money). I developed
-								my backend engineering skills using Java, Ruby and some SQL </p>
-							<section class="field-row" style="justify-content: center">
+						<div class="window-body window-body-pinned">
+							<div class="window-body-content">
+								<p>I built compliance tooling for Money Movement (legal rules for moving money). I developed
+									my backend engineering skills using Java, Ruby and some SQL </p>
+							</div>
+							<section class="field-row window-body-actions">
 								<button>OK</button>
 								<button>Cancel</button>
 							</section>
@@ -236,7 +243,7 @@
 					<div class="window project-program" id="discord">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								Discord
+								<img src="/assets/images/icons/discord.ico" class="title-bar-icon" alt=""> Discord
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Minimize"></button>
@@ -244,10 +251,12 @@
 								<button aria-label="Close"></button>
 							</div>
 						</div>
-						<div class="window-body">
-							<p>I work on the Financial Platform. I do mostly backend development in Python and use some
-								SQL here and there.</p>
-							<section class="field-row" style="justify-content: center">
+						<div class="window-body window-body-pinned">
+							<div class="window-body-content">
+								<p>I work on the Financial Platform. I do mostly backend development in Python and use some
+									SQL here and there.</p>
+							</div>
+							<section class="field-row window-body-actions">
 								<button>OK</button>
 								<button>Cancel</button>
 							</section>
@@ -263,7 +272,7 @@
 					<div class="window" id="mail-sent">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								Mail Status
+								<img src="/assets/images/icons/mail.ico" class="title-bar-icon" alt=""> Mail Status
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Close"></button>
@@ -284,7 +293,7 @@
 					<div class="window project-program" id="mail">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								Mail
+								<img src="/assets/images/icons/mail.ico" class="title-bar-icon" alt=""> Mail
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Minimize"></button>
@@ -330,14 +339,24 @@
 					<div id="start-menu" class="start-menu">
 						<div class="start-menu-header">
 							<div class="start-menu-avatar">&#128100;</div>
-							<span>Femi</span>
+							<span class="start-menu-username">Femi</span>
 						</div>
 						<div class="start-menu-body">
 							<ul class="start-menu-left">
 								<li onclick="windowManager.openWindow('aboutme'); toggleStartMenu();">
-									<img src="/favicon.ico" alt="" class="menu-icon">
-									<span>About Me</span>
+									<img src="/assets/images/femi_xyz_logo.png" alt="" class="menu-icon">
+									<div>
+										<span class="menu-item-main">About Me</span>
+									</div>
 								</li>
+								<li onclick="windowManager.openWindow('mail'); toggleStartMenu();">
+									<img src="/assets/images/icons/mail.ico" alt="" class="menu-icon">
+									<div>
+										<span class="menu-item-main">Mail</span>
+										<span class="menu-item-sub">Send me a message</span>
+									</div>
+								</li>
+								<hr class="menu-separator">
 								<li onclick="windowManager.openWindow('cmu'); toggleStartMenu();">
 									<img src="/assets/images/icons/cmu.ico" alt="" class="menu-icon">
 									<span>Carnegie Mellon</span>
@@ -354,9 +373,10 @@
 									<img src="/assets/images/icons/discord.ico" alt="" class="menu-icon">
 									<span>Discord</span>
 								</li>
-								<li onclick="windowManager.openWindow('mail'); toggleStartMenu();">
-									<img src="/assets/images/icons/mail.ico" alt="" class="menu-icon">
-									<span>Mail</span>
+								<hr class="menu-separator">
+								<li class="start-menu-all-programs">
+									<span>All Programs</span>
+									<span>&#9658;</span>
 								</li>
 							</ul>
 							<ul class="start-menu-right">
@@ -368,7 +388,7 @@
 						</div>
 						<div class="start-menu-footer">
 							<button class="start-menu-footer-btn" onclick="toggleStartMenu()">&#128274; Log Off</button>
-							<button class="start-menu-footer-btn" onclick="toggleStartMenu()">&#9210; Turn Off</button>
+							<button class="start-menu-footer-btn" onclick="toggleStartMenu()">&#9210; Shut Down</button>
 						</div>
 					</div>
 					<section class="taskbar">
@@ -407,7 +427,7 @@
 							<li>
 								<div class="taskbar-item" data-window-id="aboutme"
 									onclick="windowManager.toggleWindow('aboutme')">
-									<img src="/favicon.ico" alt="" class="taskbar-icon">
+									<img src="/assets/images/femi_xyz_logo.png" alt="" class="taskbar-icon">
 									<span>About Me</span>
 								</div>
 							</li>
