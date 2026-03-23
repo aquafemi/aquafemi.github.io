@@ -1,6 +1,6 @@
 # femi.xyz
 
-Personal portfolio website for Femi Olukoya.
+Personal portfolio + playground website.
 
 ## About
 
