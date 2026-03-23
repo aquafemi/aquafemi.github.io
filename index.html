@@ -30,12 +30,16 @@
 	<link rel="stylesheet" href="/assets/css/style.css">
 	<link rel="stylesheet" href="https://unpkg.com/xp.css" />
 	<style>
+		html, body {
+			overscroll-behavior: none;
+			overflow: hidden;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
 		body {
 			background: url("/assets/images/splash-screen.webp") no-repeat center center fixed;
 			background-size: cover;
-			overflow-x: hidden;
-			margin: 0;
-			padding: 0;
 		}
 	</style>
 </head>
@@ -73,7 +77,7 @@
 
 			<section class="projects">
 				<ul class="projects-list">
-					<div class="window project-program" id="aboutme" style="display: none;">
+					<div class="window project-program" id="aboutme">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								About Me
@@ -144,7 +148,7 @@
 						</div>
 					</div>
 
-					<div class="window project-program" id="cmu" style="display: none;">
+					<div class="window project-program" id="cmu">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Carnegie Mellon
@@ -173,7 +177,7 @@
 						</div>
 					</div>
 
-					<div class="window project-program" id="microsoft" style="display: none;">
+					<div class="window project-program" id="microsoft">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Microsoft
@@ -202,7 +206,7 @@
 						</div>
 					</div>
 
-					<div class="window project-program" id="stripe" style="display: none;">
+					<div class="window project-program" id="stripe">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Stripe
@@ -229,7 +233,7 @@
 						</div>
 					</div>
 
-					<div class="window project-program" id="discord" style="display: none;">
+					<div class="window project-program" id="discord">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Discord
@@ -256,7 +260,7 @@
 						</div>
 					</div>
 
-					<div class="window" id="mail-sent" style="display: none;">
+					<div class="window" id="mail-sent">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Mail Status
@@ -277,7 +281,7 @@
 						</div>
 					</div>
 
-					<div class="window project-program" id="mail" style="display: none;">
+					<div class="window project-program" id="mail">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
 								Mail
@@ -324,38 +328,52 @@
 				<div class="container">
 					<!-- Start Menu (Initially Hidden) -->
 					<div id="start-menu" class="start-menu">
-						<div class="start-menu-header"><span>User</span></div>
-						<ul>
-
-							<li onclick="windowManager.openWindow('aboutme'); toggleStartMenu();">
-								<img src="/favicon.ico" alt="" class="menu-icon">
-								<span>About Me</span>
-							</li>
-							<li onclick="windowManager.openWindow('cmu'); toggleStartMenu();">
-								<img src="/assets/images/icons/cmu.ico" alt="" class="menu-icon">
-								<span>Carnegie Mellon</span>
-							</li>
-							<li onclick="windowManager.openWindow('microsoft'); toggleStartMenu();">
-								<img src="/assets/images/icons/microsoft.ico" alt="" class="menu-icon">
-								<span>Microsoft</span>
-							</li>
-							<li onclick="windowManager.openWindow('stripe'); toggleStartMenu();">
-								<img src="/assets/images/icons/stripe.ico" alt="" class="menu-icon">
-								<span>Stripe</span>
-							</li>
-							<li onclick="windowManager.openWindow('discord'); toggleStartMenu();">
-								<img src="/assets/images/icons/discord.ico" alt="" class="menu-icon">
-								<span>Discord</span>
-							</li>
-							<li onclick="windowManager.openWindow('mail'); toggleStartMenu();">
-								<img src="/assets/images/icons/mail.ico" alt="" class="menu-icon">
-								<span>Mail</span>
-							</li>
-						</ul>
+						<div class="start-menu-header">
+							<div class="start-menu-avatar">&#128100;</div>
+							<span>Femi</span>
+						</div>
+						<div class="start-menu-body">
+							<ul class="start-menu-left">
+								<li onclick="windowManager.openWindow('aboutme'); toggleStartMenu();">
+									<img src="/favicon.ico" alt="" class="menu-icon">
+									<span>About Me</span>
+								</li>
+								<li onclick="windowManager.openWindow('cmu'); toggleStartMenu();">
+									<img src="/assets/images/icons/cmu.ico" alt="" class="menu-icon">
+									<span>Carnegie Mellon</span>
+								</li>
+								<li onclick="windowManager.openWindow('microsoft'); toggleStartMenu();">
+									<img src="/assets/images/icons/microsoft.ico" alt="" class="menu-icon">
+									<span>Microsoft</span>
+								</li>
+								<li onclick="windowManager.openWindow('stripe'); toggleStartMenu();">
+									<img src="/assets/images/icons/stripe.ico" alt="" class="menu-icon">
+									<span>Stripe</span>
+								</li>
+								<li onclick="windowManager.openWindow('discord'); toggleStartMenu();">
+									<img src="/assets/images/icons/discord.ico" alt="" class="menu-icon">
+									<span>Discord</span>
+								</li>
+								<li onclick="windowManager.openWindow('mail'); toggleStartMenu();">
+									<img src="/assets/images/icons/mail.ico" alt="" class="menu-icon">
+									<span>Mail</span>
+								</li>
+							</ul>
+							<ul class="start-menu-right">
+								<li><span class="start-menu-right-icon">&#128193;</span><span>My Documents</span></li>
+								<li><span class="start-menu-right-icon">&#128444;</span><span>My Pictures</span></li>
+								<li><span class="start-menu-right-icon">&#127925;</span><span>My Music</span></li>
+								<li><span class="start-menu-right-icon">&#128421;</span><span>My Computer</span></li>
+							</ul>
+						</div>
+						<div class="start-menu-footer">
+							<button class="start-menu-footer-btn" onclick="toggleStartMenu()">&#128274; Log Off</button>
+							<button class="start-menu-footer-btn" onclick="toggleStartMenu()">&#9210; Turn Off</button>
+						</div>
 					</div>
 					<section class="taskbar">
 						<div class="start-button" onclick="toggleStartMenu()"><img
-								src="/assets/images/icons/windows-xp.png" alt="" class="menu-icon"><span>start</span>
+								src="/assets/images/icons/windows-xp.png" alt="" class="start-logo"><span>start</span>
 						</div>
 						<ul class="taskbar-list">
 							<li>
@@ -401,7 +419,13 @@
 								</div>
 							</li>
 						</ul>
+						<div class="system-tray">
+						<div class="tray-icons">
+							<span class="tray-icon" title="Volume">&#128266;</span>
+							<span class="tray-icon" title="Network">&#128246;</span>
+						</div>
 						<div class="taskbar-clock" id="taskbar-clock">Now</div>
+					</div>
 					</section>
 				</div>
 			</footer>

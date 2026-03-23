@@ -18,11 +18,22 @@ class WindowManager {
 		this.resizeStartSize = { width: 0, height: 0 };
 		this.resizeStartWindowPos = { x: 0, y: 0 };
 
+		this.pendingDragTouch = null; // Touch drag starts lazily on first move
+
 		// Bind methods to maintain context
 		this.handleMouseMove = this.handleMouseMove.bind(this);
 		this.handleMouseUp = this.handleMouseUp.bind(this);
+		this.handleTouchMove = this.handleTouchMove.bind(this);
+		this.handleTouchEnd = this.handleTouchEnd.bind(this);
 
 		this.init();
+	}
+
+	/**
+	 * Returns true if the viewport is mobile-sized (≤768px)
+	 */
+	isMobile() {
+		return window.innerWidth <= 768;
 	}
 
 	/**
@@ -39,6 +50,10 @@ class WindowManager {
 
 		// Update taskbar to hide items for closed windows
 		this.updateTaskbar();
+
+		// Global touch listeners for lazy drag (attached once, always active)
+		document.addEventListener('touchmove', this.handleTouchMove, { passive: false });
+		document.addEventListener('touchend', this.handleTouchEnd);
 
 		// Open "About Me" window by default
 		setTimeout(() => {
@@ -64,18 +79,25 @@ class WindowManager {
 		// Set initial position if not already positioned
 		const computedStyle = window.getComputedStyle(windowElement);
 		const defaultPosition = positionMap[windowId] || { x: 100, y: 100 };
-		const initialX = computedStyle.left === 'auto' ? defaultPosition.x : parseInt(computedStyle.left);
-		const initialY = computedStyle.top === 'auto' ? defaultPosition.y : parseInt(computedStyle.top);
+		let initialX = computedStyle.left === 'auto' ? defaultPosition.x : parseInt(computedStyle.left);
+		let initialY = computedStyle.top === 'auto' ? defaultPosition.y : parseInt(computedStyle.top);
 
-		// Check if window is initially visible
-		const isInitiallyVisible = windowElement.style.display !== 'none';
+		// On mobile, center the window and give it a fixed size
+		if (this.isMobile()) {
+			const w = Math.min(window.innerWidth - 20, 340);
+			const h = Math.min(window.innerHeight - 80, 420);
+			windowElement.style.width = w + 'px';
+			windowElement.style.height = h + 'px';
+			initialX = Math.round((window.innerWidth - w) / 2);
+			initialY = 20;
+		}
 
 		this.windows[windowId] = {
 			element: windowElement,
 			position: { x: initialX, y: initialY },
 			previousPosition: null, // Store position before maximizing
 			state: {
-				isOpen: isInitiallyVisible,
+				isOpen: false,
 				isMinimized: false,
 				isMaximized: false
 			},
@@ -111,6 +133,8 @@ class WindowManager {
 				e.stopPropagation();
 				this.startResize(windowElement.id, direction, e);
 			});
+
+				// No touch resize — conflicts with drag on mobile
 		});
 	}
 
@@ -135,6 +159,22 @@ class WindowManager {
 					return;
 				}
 				this.startDrag(windowId, e);
+			});
+
+				// Touch drag from title bar — use passive touchstart so button taps aren't blocked
+			titleBar.addEventListener('touchstart', (e) => {
+				if (e.target.closest('.title-bar-controls button')) {
+					return;
+				}
+				this.pendingDragTouch = { windowId, touch: e.touches[0] };
+			}, { passive: true });
+
+			// Double-click title bar to maximize/restore
+			titleBar.addEventListener('dblclick', (e) => {
+				if (e.target.closest('.title-bar-controls button')) {
+					return;
+				}
+				this.toggleMaximize(windowId);
 			});
 
 			// Prevent text selection during drag
@@ -213,6 +253,55 @@ class WindowManager {
 
 		// Prevent text selection
 		event.preventDefault();
+	}
+
+	/**
+	 * Handle touch move — lazily commit drag on first significant movement
+	 */
+	handleTouchMove(event) {
+		const touch = event.touches[0];
+
+		// Lazily start drag once movement crosses threshold (avoids blocking taps)
+		if (this.pendingDragTouch) {
+			const dx = touch.clientX - this.pendingDragTouch.touch.clientX;
+			const dy = touch.clientY - this.pendingDragTouch.touch.clientY;
+			if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+				const { windowId } = this.pendingDragTouch;
+				const windowData = this.windows[windowId];
+				this.pendingDragTouch = null;
+				if (!windowData.state.isMaximized) {
+					this.isDragging = true;
+					this.currentDragWindow = windowId;
+					const rect = windowData.element.getBoundingClientRect();
+					this.dragOffset = {
+						x: touch.clientX - rect.left,
+						y: touch.clientY - rect.top
+					};
+					windowData.element.classList.add('dragging');
+					this.bringToFront(windowId);
+				}
+			}
+		}
+
+		const syntheticEvent = { clientX: touch.clientX, clientY: touch.clientY };
+		if (this.isDragging && this.currentDragWindow) {
+			this.handleDragMove(syntheticEvent);
+			event.preventDefault();
+		}
+	}
+
+	/**
+	 * Handle touch end — stop drag
+	 */
+	handleTouchEnd() {
+		this.pendingDragTouch = null;
+		if (this.isDragging) {
+			if (this.currentDragWindow && this.windows[this.currentDragWindow]) {
+				this.windows[this.currentDragWindow].element.classList.remove('dragging');
+			}
+			this.isDragging = false;
+			this.currentDragWindow = null;
+		}
 	}
 
 	/**
@@ -423,7 +512,7 @@ class WindowManager {
 		// Restore from minimized
 		if (windowData.state.isMinimized) {
 			windowData.state.isMinimized = false;
-			windowData.element.style.display = 'block';
+			windowData.element.classList.add('open');
 			this.bringToFront(windowId);
 		}
 
@@ -455,7 +544,7 @@ class WindowManager {
 		if (!windowData) return;
 
 		windowData.state.isMinimized = true;
-		windowData.element.style.display = 'none';
+		windowData.element.classList.remove('open');
 
 		this.updateTaskbar();
 	}
@@ -468,7 +557,7 @@ class WindowManager {
 		if (!windowData) return;
 
 		windowData.state.isOpen = false;
-		windowData.element.style.display = 'none';
+		windowData.element.classList.remove('open');
 
 		this.updateTaskbar();
 	}
@@ -489,7 +578,10 @@ class WindowManager {
 		// If closed, reopen
 		if (!windowData.state.isOpen) {
 			windowData.state.isOpen = true;
-			windowData.element.style.display = 'block';
+			windowData.element.classList.add('open');
+			// Pop-in animation
+			windowData.element.classList.add('opening');
+			setTimeout(() => windowData.element.classList.remove('opening'), 120);
 		}
 
 		// Bring to front

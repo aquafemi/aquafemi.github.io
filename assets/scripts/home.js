@@ -176,10 +176,100 @@ function handleContactSubmit(event) {
 }
 
 /**
+ * Desktop icon selection (click) + touch dragging (mobile only)
+ */
+function initDesktopIconSelection() {
+	const container = document.querySelector('.desktop-icons');
+	if (!container) return;
+
+	const icons = container.querySelectorAll('.desktop-icon');
+
+	// Switch container to full-viewport block so absolute children work
+	container.style.display = 'block';
+	container.style.width = '100vw';
+	container.style.height = '100vh';
+	container.style.top = '0';
+	container.style.left = '0';
+	container.style.pointerEvents = 'none';
+
+	// Position icons in a column on the left, computed mathematically
+	const startX = 15;
+	const startY = 15;
+	const iconHeight = 80;
+	const gap = 20;
+	icons.forEach((icon, i) => {
+		icon.style.position = 'absolute';
+		icon.style.left = startX + 'px';
+		icon.style.top = (startY + i * (iconHeight + gap)) + 'px';
+		icon.style.margin = '0';
+		icon.style.pointerEvents = 'auto';
+	});
+
+	// Selection on click (desktop)
+	icons.forEach(icon => {
+		icon.addEventListener('click', () => {
+			icons.forEach(i => i.classList.remove('selected'));
+			icon.classList.add('selected');
+		});
+	});
+
+	// Deselect when clicking the desktop background
+	document.addEventListener('click', (e) => {
+		if (!e.target.closest('.desktop-icon') && !e.target.closest('.window')) {
+			icons.forEach(i => i.classList.remove('selected'));
+		}
+	});
+
+	// Touch dragging (mobile only)
+	icons.forEach(icon => {
+		let touchOffset = { x: 0, y: 0 };
+		let touchStart = { x: 0, y: 0 };
+		let touchDragging = false;
+
+		icon.addEventListener('touchstart', (e) => {
+			e.stopPropagation();
+			const t = e.touches[0];
+			touchStart = { x: t.clientX, y: t.clientY };
+			const rect = icon.getBoundingClientRect();
+			touchOffset = { x: t.clientX - rect.left, y: t.clientY - rect.top };
+			touchDragging = false;
+			icons.forEach(i => i.classList.remove('selected'));
+			icon.classList.add('selected');
+		}, { passive: true });
+
+		icon.addEventListener('touchmove', (e) => {
+			const t = e.touches[0];
+			const dx = t.clientX - touchStart.x;
+			const dy = t.clientY - touchStart.y;
+			if (!touchDragging && Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+			touchDragging = true;
+			icon.style.zIndex = 50;
+			const parent = icon.parentElement.getBoundingClientRect();
+			let x = t.clientX - touchOffset.x - parent.left;
+			let y = t.clientY - touchOffset.y - parent.top;
+			x = Math.max(0, Math.min(x, window.innerWidth - icon.offsetWidth));
+			y = Math.max(0, Math.min(y, window.innerHeight - icon.offsetHeight - 44));
+			icon.style.left = x + 'px';
+			icon.style.top = y + 'px';
+			e.preventDefault();
+		}, { passive: false });
+
+		icon.addEventListener('touchend', () => {
+			icon.style.zIndex = '';
+			touchDragging = false;
+		});
+	});
+}
+
+/**
  * Initialize all UI components when DOM is ready
  */
 if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', initClock);
+	document.addEventListener('DOMContentLoaded', () => {
+		initClock();
+		initDesktopIconSelection();
+	});
 } else {
 	initClock();
+	initDesktopIconSelection();
 }
