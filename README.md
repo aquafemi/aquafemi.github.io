@@ -35,6 +35,18 @@ python3 -m http.server 8000
 
 Automatically deployed to Cloudflare Pages on push to `master` branch.
 
+## Todo
+
+- [ ] XP Error Messages — random BSOD or error dialog popups
+- [ ] Minesweeper window
+- [ ] Solitaire window
+- [ ] Pinball window (3D Pinball Space Cadet)
+- [ ] Notepad window with a README.txt
+- [ ] Recycle Bin desktop icon
+- [ ] Internet Explorer window
+- [ ] WinAmp-style music player window
+- [ ] Language toggle — switch all site text between English and Japanese
+
 ## Structure
 
 ```

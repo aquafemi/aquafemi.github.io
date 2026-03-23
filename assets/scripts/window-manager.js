@@ -55,9 +55,10 @@ class WindowManager {
 		document.addEventListener('touchmove', this.handleTouchMove, { passive: false });
 		document.addEventListener('touchend', this.handleTouchEnd);
 
-		// Open "About Me" window by default
+		// Open default windows
 		setTimeout(() => {
 			this.openWindow('aboutme');
+			this.openWindow('help');
 		}, 100);
 	}
 
@@ -71,7 +72,8 @@ class WindowManager {
 			'microsoft': { x: 100, y: 100 },
 			'stripe': { x: 150, y: 150 },
 			'discord': { x: 200, y: 200 },
-			'aboutme': { x: 250, y: 100 },
+			'aboutme': { x: 200, y: 80 },
+			'help': { x: 320, y: 130 },
 			'mail': { x: 300, y: 150 },
 			'mail-sent': { x: 300, y: 150 }
 		};

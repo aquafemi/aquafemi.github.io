@@ -20,10 +20,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="robots" content="index,follow">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="shortcut icon" href="/assets/images/icons/windows-xp.png" type="image/png">
-	<link rel="icon" href="/assets/images/icons/windows-xp.png" type="image/png">
-	<!-- <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"> -->
+	<link rel="shortcut icon" href="/assets/images/icons/windows-xp-flag.jpg" type="image/jpeg">
+	<link rel="icon" href="/assets/images/icons/windows-xp-flag.png" type="image/png">
 	<link rel="manifest" href="/manifest.json">
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="theme-color" content="#ffffff">
@@ -45,6 +43,47 @@
 </head>
 
 <body>
+
+	<!-- Boot Screen -->
+	<div id="boot-screen">
+		<div id="boot-content">
+			<img src="/assets/images/icons/windows-xp-wordmark-white.png" id="boot-logo" alt="Windows XP">
+			<div id="boot-progress-wrap">
+				<div id="boot-progress-track">
+					<div id="boot-progress-bar"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Login Screen -->
+	<div id="login-screen" style="display:none;">
+		<div id="login-top-bar"></div>
+		<div id="login-body">
+			<div id="login-left">
+				<img src="/assets/images/icons/windows-xp-wordmark-color.svg" id="login-logo" alt="Windows XP Professional">
+				<p id="login-prompt">To begin, click your name to log in</p>
+			</div>
+			<div id="login-divider"></div>
+			<div id="login-right">
+				<div id="login-user" onclick="doLogin()">
+					<img src="/assets/images/femi_xyz_logo.png" alt="Femi" id="login-avatar">
+					<div id="login-user-info">
+						<div id="login-username">Femi</div>
+						<div id="login-usertitle">Administrator</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="login-bottom-bar">
+			<div id="login-bottom-left" onclick="doRestart()" style="cursor:pointer;">
+				<img src="/assets/images/icons/windows-xp-restart.webp" width="18" height="18" style="margin-right:6px;vertical-align:middle;" alt="">
+				Restart
+			</div>
+			<div id="login-bottom-right">To add or change accounts, reach out to the Administrator via the Mail program</div>
+		</div>
+	</div>
+
 	<main class="content">
 		<div class="container-home">
 			<!-- Desktop Icons -->
@@ -340,7 +379,7 @@
 				<div class="window project-program" id="help">
 						<div class="title-bar flex">
 							<div class="title-bar-text">
-								<img src="/assets/images/icons/help.svg" class="title-bar-icon" alt=""> Help and Support
+								<img src="/assets/images/icons/help.svg" class="title-bar-icon" alt=""> Help
 							</div>
 							<div class="title-bar-controls">
 								<button aria-label="Minimize"></button>
@@ -465,18 +504,24 @@
 								<hr class="menu-separator">
 								<li onclick="windowManager.openWindow('help'); toggleStartMenu();">
 									<img src="/assets/images/icons/help.svg" alt="" class="menu-icon">
-									<span>Help and Support</span>
+									<span>Help</span>
 								</li>
 							</ul>
 						</div>
 						<div class="start-menu-footer">
-							<button class="start-menu-footer-btn" onclick="toggleStartMenu()">&#128274; Log Off</button>
-							<button class="start-menu-footer-btn" onclick="toggleStartMenu()">&#9210; Shut Down</button>
+							<button class="start-menu-footer-btn" onclick="toggleStartMenu(); doLogOff()">
+								<img src="/assets/images/icons/windows-xp-switch-users.png" width="16" height="16" style="vertical-align:middle;margin-right:4px" alt="">
+								Switch User
+							</button>
+							<button class="start-menu-footer-btn" onclick="toggleStartMenu(); doRestart()">
+								<img src="/assets/images/icons/windows-xp-turn-off.png" width="16" height="16" style="vertical-align:middle;margin-right:4px" alt="">
+								Turn Off Computer
+							</button>
 						</div>
 					</div>
 					<section class="taskbar">
 						<div class="start-button" onclick="toggleStartMenu()"><img
-								src="/assets/images/icons/windows-xp.png" alt="" class="start-logo"><span>start</span>
+								src="/assets/images/icons/windows-xp-flag.png" alt="" class="start-logo"><span>start</span>
 						</div>
 						<ul class="taskbar-list">
 							<li>
@@ -547,6 +592,7 @@
 	</script>
 	<script src="/assets/scripts/window-manager.js"></script>
 	<script src="/assets/scripts/home.js"></script>
+	<script src="/assets/scripts/boot.js"></script>
 </body>
 
 </html>
