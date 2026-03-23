@@ -73,6 +73,10 @@
 					<img src="/assets/images/icons/mail.ico" alt="Mail">
 					<span>Mail</span>
 				</div>
+				<div class="desktop-icon" data-window="help">
+					<img src="/assets/images/icons/help.svg" alt="Help">
+					<span>Help</span>
+				</div>
 			</div>
 
 			<section class="projects">
@@ -301,24 +305,26 @@
 								<button aria-label="Close"></button>
 							</div>
 						</div>
-						<div class="window-body">
+						<div class="window-body window-body-pinned">
 							<form id="contact-form" onsubmit="handleContactSubmit(event)">
-								<div class="field-row-stacked">
-									<label for="contact-name">Name</label>
-									<input id="contact-name" type="text" name="name" required />
+								<div class="window-body-content">
+									<div class="field-row-stacked">
+										<label for="contact-name">Name</label>
+										<input id="contact-name" type="text" name="name" required />
+									</div>
+									<div class="field-row-stacked">
+										<label for="contact-email">Email</label>
+										<input id="contact-email" type="email" name="email" required />
+									</div>
+									<div class="field-row-stacked">
+										<label for="contact-message">Message</label>
+										<textarea id="contact-message" name="message" rows="6" required></textarea>
+									</div>
+									<div id="email-status" class="email-status" style="display: none;">
+										<progress id="email-progress" max="100" value="0"></progress>
+									</div>
 								</div>
-								<div class="field-row-stacked">
-									<label for="contact-email">Email</label>
-									<input id="contact-email" type="email" name="email" required />
-								</div>
-								<div class="field-row-stacked">
-									<label for="contact-message">Message</label>
-									<textarea id="contact-message" name="message" rows="6" required></textarea>
-								</div>
-								<div id="email-status" class="email-status" style="display: none;">
-									<progress id="email-progress" max="100" value="0"></progress>
-								</div>
-								<section class="field-row" style="justify-content: center">
+								<section class="field-row window-body-actions">
 									<button type="submit">Send</button>
 								</section>
 							</form>
@@ -327,6 +333,78 @@
 						<div class="status-bar">
 							<p class="status-bar-field">Press F1 for help</p>
 							<p class="status-bar-field">Slide 6</p>
+							<p class="status-bar-field">CPU Usage: 14%</p>
+						</div>
+					</div>
+
+				<div class="window project-program" id="help">
+						<div class="title-bar flex">
+							<div class="title-bar-text">
+								<img src="/assets/images/icons/help.svg" class="title-bar-icon" alt=""> Help and Support
+							</div>
+							<div class="title-bar-controls">
+								<button aria-label="Minimize"></button>
+								<button aria-label="Maximize"></button>
+								<button aria-label="Close"></button>
+							</div>
+						</div>
+						<div class="window-body window-body-pinned">
+							<div class="window-body-content">
+								<menu role="tablist">
+									<button role="tab" aria-selected="true" aria-controls="help-desktop">Desktop</button>
+									<button role="tab" aria-controls="help-mobile">Mobile</button>
+								</menu>
+								<article role="tabpanel" id="help-desktop">
+									<dl>
+										<dt>Open a program</dt>
+										<dd>Double-click a desktop icon</dd>
+										<dt>Select an icon</dt>
+										<dd>Single-click a desktop icon</dd>
+										<dt>Select multiple icons</dt>
+										<dd>Click and drag on the desktop to draw a selection box</dd>
+										<dt>Add to selection</dt>
+										<dd>Hold Shift and click additional icons</dd>
+										<dt>Open selected</dt>
+										<dd>Press Enter to open all selected icons</dd>
+										<dt>Move a window</dt>
+										<dd>Click and drag the title bar</dd>
+										<dt>Resize a window</dt>
+										<dd>Click and drag any edge or corner</dd>
+										<dt>Minimize / Maximize / Close</dt>
+										<dd>Use the buttons in the top-right of any window</dd>
+										<dt>Taskbar</dt>
+										<dd>Click any open program in the taskbar to bring it to focus or minimize it</dd>
+										<dt>Start Menu</dt>
+										<dd>Click the Start button to open programs from the menu</dd>
+									</dl>
+								</article>
+								<article role="tabpanel" hidden id="help-mobile">
+									<dl>
+										<dt>Open a program</dt>
+										<dd>Tap a desktop icon</dd>
+										<dt>Move a window</dt>
+										<dd>Tap and drag the title bar</dd>
+										<dt>Maximize / Minimize / Close</dt>
+										<dd>Tap the buttons in the top-right of any window</dd>
+										<dt>Scroll window content</dt>
+										<dd>Swipe up/down inside the window body</dd>
+										<dt>Move a desktop icon</dt>
+										<dd>Tap and drag the icon to reposition it</dd>
+										<dt>Taskbar</dt>
+										<dd>Tap any open program in the taskbar to bring it to focus or minimize it</dd>
+										<dt>Start Menu</dt>
+										<dd>Tap the Start button to open programs from the menu</dd>
+									</dl>
+								</article>
+							</div>
+						<section class="field-row window-body-actions">
+								<button>OK</button>
+								<button>Cancel</button>
+							</section>
+						</div>
+						<div class="status-bar">
+							<p class="status-bar-field">Press F1 for help</p>
+							<p class="status-bar-field">Help</p>
 							<p class="status-bar-field">CPU Usage: 14%</p>
 						</div>
 					</div>
@@ -384,6 +462,11 @@
 								<li><span class="start-menu-right-icon">&#128444;</span><span>My Pictures</span></li>
 								<li><span class="start-menu-right-icon">&#127925;</span><span>My Music</span></li>
 								<li><span class="start-menu-right-icon">&#128421;</span><span>My Computer</span></li>
+								<hr class="menu-separator">
+								<li onclick="windowManager.openWindow('help'); toggleStartMenu();">
+									<img src="/assets/images/icons/help.svg" alt="" class="menu-icon">
+									<span>Help and Support</span>
+								</li>
 							</ul>
 						</div>
 						<div class="start-menu-footer">
@@ -436,6 +519,13 @@
 									onclick="windowManager.toggleWindow('mail')">
 									<img src="/assets/images/icons/mail.ico" alt="" class="taskbar-icon">
 									<span>Mail</span>
+								</div>
+							</li>
+							<li>
+								<div class="taskbar-item" data-window-id="help"
+									onclick="windowManager.toggleWindow('help')">
+									<img src="/assets/images/icons/help.svg" alt="" class="taskbar-icon">
+									<span>Help</span>
 								</div>
 							</li>
 						</ul>

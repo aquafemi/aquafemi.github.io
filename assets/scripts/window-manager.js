@@ -82,13 +82,9 @@ class WindowManager {
 		let initialX = computedStyle.left === 'auto' ? defaultPosition.x : parseInt(computedStyle.left);
 		let initialY = computedStyle.top === 'auto' ? defaultPosition.y : parseInt(computedStyle.top);
 
-		// On mobile, center the window and give it a fixed size
+		// On mobile, center the window (let content determine size)
 		if (this.isMobile()) {
-			const w = Math.min(window.innerWidth - 20, 340);
-			const h = Math.min(window.innerHeight - 80, 420);
-			windowElement.style.width = w + 'px';
-			windowElement.style.height = h + 'px';
-			initialX = Math.round((window.innerWidth - w) / 2);
+			initialX = 10;
 			initialY = 20;
 		}
 
@@ -490,10 +486,10 @@ class WindowManager {
 		windowData.state.isMaximized = true;
 
 		// Set dimensions and position
-		const taskbarHeight = 40;
+		const taskbarHeight = 30;
 		windowData.element.style.left = '0px';
 		windowData.element.style.top = '0px';
-		windowData.element.style.width = '100%';
+		windowData.element.style.width = '100vw';
 		windowData.element.style.height = `calc(100vh - ${taskbarHeight}px)`;
 
 		// Add maximized class for styling

@@ -286,13 +286,20 @@ function initDesktopIconSelection() {
 			}
 		});
 
-		// Deselect when clicking desktop background
+		// Deselect when clicking anything that isn't a desktop icon
 		document.addEventListener('click', (e) => {
-			if (!e.target.closest('.desktop-icon') && !e.target.closest('.window')) {
+			if (!e.target.closest('.desktop-icon')) {
 				icons.forEach(i => i.classList.remove('selected'));
 			}
 		});
 	}
+
+	// Mobile: deselect icons when tapping outside them
+	document.addEventListener('touchstart', (e) => {
+		if (!e.target.closest('.desktop-icon')) {
+			icons.forEach(i => i.classList.remove('selected'));
+		}
+	}, { passive: true });
 
 	// Touch dragging (mobile only)
 	icons.forEach(icon => {
