@@ -12,22 +12,14 @@
         bootScreen.classList.remove('fade-out');
         loginScreen.style.display = 'none';
         loginScreen.classList.remove('visible', 'fade-out');
+        progressBar.classList.remove('animating');
         progressBar.style.width = '0%';
 
-        const steps = [8, 18, 30, 42, 54, 66, 78, 90, 100];
-        let stepIndex = 0;
-
-        function advanceProgress() {
-            if (stepIndex >= steps.length) {
-                setTimeout(showLogin, 400);
-                return;
-            }
-            progressBar.style.width = steps[stepIndex++] + '%';
-            const delay = stepIndex < steps.length ? 260 + Math.random() * 120 : 300;
-            setTimeout(advanceProgress, delay);
-        }
-
-        setTimeout(advanceProgress, 600);
+        const FILL_MS = 4000;
+        setTimeout(() => {
+            progressBar.classList.add('animating');
+            setTimeout(showLogin, FILL_MS + 300);
+        }, 600);
     }
 
     function showLogin() {

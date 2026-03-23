@@ -1745,7 +1745,15 @@ pre {
     border-radius: 7px;
     background: linear-gradient(to bottom, #6AADFF 0%, #2070D0 50%, #1050A8 100%);
     box-shadow: 0 0 6px rgba(100,180,255,0.6);
-    transition: width 0.12s linear;
+}
+
+#boot-progress-bar.animating {
+    animation: boot-fill 4s linear forwards;
+}
+
+@keyframes boot-fill {
+    from { width: 0%; }
+    to   { width: 100%; }
 }
 
 /* ==========================================================================
@@ -1871,7 +1879,7 @@ pre {
     border-top: 2px solid #F5A623;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0 20px;
     flex-shrink: 0;
 }

@@ -57,7 +57,6 @@ class WindowManager {
 
 		// Open default windows
 		setTimeout(() => {
-			this.openWindow('aboutme');
 			this.openWindow('help');
 		}, 100);
 	}
