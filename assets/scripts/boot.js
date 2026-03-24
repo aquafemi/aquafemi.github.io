@@ -36,6 +36,7 @@
     }
 
     window.doLogin = function () {
+        new Audio('/assets/sounds/windows-xp-logon.mp3').play();
         loginScreen.classList.add('fade-out');
         sessionStorage.setItem(STORAGE_KEY, '1');
         setTimeout(() => {
@@ -55,8 +56,9 @@
     };
 
     window.doRestart = function () {
+        new Audio('/assets/sounds/windows-xp-shutdown.wav').play();
         sessionStorage.removeItem(STORAGE_KEY);
-        runBoot();
+        setTimeout(runBoot, 1200);
     };
 
     // Skip boot sequence if already seen this session
